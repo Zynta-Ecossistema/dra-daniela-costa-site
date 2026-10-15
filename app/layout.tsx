@@ -20,6 +20,8 @@ const description =
   "Acompanhamento multiprofissional em mente, corpo e hormônios com a Dra. Daniela Lima da Costa (CRM-SP 272263). Atendimento presencial em Guarulhos, telemedicina e consulta domiciliar.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.dradanielacosta.com.br"),
+  alternates: { canonical: "/" },
   title,
   description,
   openGraph: { title, description, locale: "pt_BR", type: "website" },

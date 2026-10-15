@@ -44,7 +44,7 @@ export function Header() {
             </span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-6 text-[0.86rem]" aria-label="Seções">
+          <nav className="hidden xl:flex items-center gap-6 text-[0.86rem]" aria-label="Seções">
             {links.slice(0, 7).map(([h, l]) => (
               <a key={h} href={h} className="text-ink-soft hover:text-ink transition-colors">
                 {l}
@@ -59,7 +59,7 @@ export function Header() {
           </nav>
 
           <button
-            className="lg:hidden border border-line bg-paper rounded-sm px-3.5 py-2 text-sm flex items-center gap-2"
+            className="xl:hidden border border-line bg-paper rounded-sm px-3.5 py-2.5 text-sm flex items-center gap-2"
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((v) => !v)}
@@ -77,7 +77,7 @@ export function Header() {
       {open && (
         <div
           id="menu-mobile"
-          className="lg:hidden fixed inset-x-0 top-[104px] bottom-0 z-30 bg-paper px-5 pt-6 overflow-auto"
+          className="xl:hidden fixed inset-x-0 top-[104px] bottom-0 z-30 bg-paper px-5 pt-6 overflow-auto"
         >
           <ul className="flex flex-col">
             {links.map(([h, l]) => (

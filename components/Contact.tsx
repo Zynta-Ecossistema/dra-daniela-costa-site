@@ -22,7 +22,9 @@ function BookingForm() {
       date ? `Data de preferência: ${d}/${m}/${y}.` : "",
       period ? `Período de preferência: ${period}.` : "",
     ].filter(Boolean);
-    window.open(waLink(parts.join(" ")), "_blank", "noopener,noreferrer");
+    const url = waLink(parts.join(" "));
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    if (!w) window.location.href = url;
   }
 
   const field = "w-full bg-paper border border-line rounded-sm px-4 py-3.5 text-[0.95rem] focus:border-ink outline-none";
