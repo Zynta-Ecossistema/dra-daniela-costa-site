@@ -82,7 +82,7 @@ export function Locations() {
                 Vila Pedro Moreira, Guarulhos, SP
               </p>
               <a
-                className="inline-block mt-4 border-b border-ink/40 pb-0.5 text-[0.9rem] hover:border-ink"
+                className="inline-block mt-2 py-2 border-b border-ink/40 text-[0.9rem] hover:border-ink"
                 href="https://www.google.com/maps/search/?api=1&query=R.+Silvestre+Vasconcelos+Calmon+190+Guarulhos+SP"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -110,7 +110,7 @@ export function Locations() {
                 Centro, Guarulhos, SP
               </p>
               <a
-                className="inline-block mt-4 border-b border-ink/40 pb-0.5 text-[0.9rem] hover:border-ink"
+                className="inline-block mt-2 py-2 border-b border-ink/40 text-[0.9rem] hover:border-ink"
                 href="https://www.google.com/maps/search/?api=1&query=R.+Dr.+Ramos+de+Azevedo+159+Guarulhos+SP"
                 target="_blank"
                 rel="noopener noreferrer"

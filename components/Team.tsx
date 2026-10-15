@@ -31,7 +31,7 @@ function Row({ p }: { p: Person }) {
         <p className="font-serif text-[1.5rem] leading-tight">{p.name}</p>
         <p className="text-[0.88rem] text-rose mt-1">{p.role}</p>
         {p.note && <p className="text-[0.88rem] text-ink-soft mt-1">{p.note}</p>}
-        {p.reg && <p className="text-[0.76rem] text-ink-soft/80 mt-1 tracking-wide">{p.reg}</p>}
+        {p.reg && <p className="text-[0.78rem] text-ink-soft mt-1 tracking-wide">{p.reg}</p>}
       </div>
     </li>
   );
