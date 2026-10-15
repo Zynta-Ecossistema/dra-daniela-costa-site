@@ -23,7 +23,7 @@ export function Plans() {
 
   const pill = (active: boolean) =>
     `flex flex-col items-start justify-start text-left border p-4 sm:p-5 transition-all rounded-sm ${
-      active ? "border-ink bg-sage/60 shadow-[inset_0_0_0_1px_var(--ink)]" : "border-line bg-paper hover:border-ink/50"
+      active ? "border-ink bg-olive-soft/60 shadow-[inset_0_0_0_1px_var(--ink)]" : "border-line bg-card hover:border-ink/50"
     }`;
 
   return (
@@ -76,7 +76,7 @@ export function Plans() {
           </p>
         </Reveal>
 
-        <Reveal delay={120} className="on-dark relative bg-forest text-paper p-7 sm:p-10 grain overflow-hidden">
+        <Reveal delay={120} className="on-dark relative bg-cocoa text-paper p-7 sm:p-10 grain overflow-hidden">
           <div className="relative z-10" aria-live="polite">
             <div className="flex items-center justify-end gap-3">
               <span className="border border-paper/35 rounded-full px-3 py-1 text-[0.72rem]">{months} meses</span>
@@ -108,7 +108,7 @@ export function Plans() {
             <ul className="mt-4 space-y-3">
               {plan.items.map((it) => (
                 <li key={it} className="flex gap-3 text-[0.95rem]">
-                  <span aria-hidden className="text-[#e9b8c5]">✓</span>
+                  <span aria-hidden className="text-gold-light">✓</span>
                   {it}
                 </li>
               ))}
@@ -117,11 +117,11 @@ export function Plans() {
 
             <a
               href={waLink(msg)}
-              className="mt-8 flex items-center justify-between bg-blush text-forest px-5 py-4 rounded-sm font-medium hover:bg-paper transition-colors"
+              className="mt-8 flex items-center justify-between bg-blush text-cocoa px-5 py-4 rounded-sm font-medium hover:bg-paper transition-colors"
             >
               Conversar sobre este plano <span aria-hidden>↗</span>
             </a>
-            <p className="mt-3 text-[0.75rem] text-paper/55">
+            <p className="mt-3 text-[0.75rem] text-paper/70">
               {plan.installment ? "Parcelas mensais sem acréscimo. " : ""}Condições formalizadas na contratação.
             </p>
           </div>

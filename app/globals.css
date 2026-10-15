@@ -1,30 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #fbf8f4;
-  --paper-2: #f4ede6;
-  --blush: #ecd9d2;
-  --blush-2: #f3e6e1;
-  --forest: #1c3a33;
-  --forest-2: #274a41;
-  --ink: #223a34;
-  --ink-soft: #55665f;
-  --rose: #a4526a;
-  --sage: #e3e6dc;
-  --line: #d9d2c8;
+  --paper: #f7f1e7;
+  --paper-2: #efe7da;
+  --card: #fcf9f2;
+  --blush: #ebdad4;
+  --blush-2: #f2e6e1;
+  --cocoa: #43372e;
+  --cocoa-2: #5a4a3d;
+  --ink: #42362a;
+  --ink-soft: #6b5b4e;
+  --gold: #8c5e1a;
+  --gold-light: #e3b66a;
+  --lilac: #a98ead;
+  --lilac-deep: #6e5673;
+  --lilac-soft: #e9dfe8;
+  --olive: #707c37;
+  --olive-deep: #5f6b2d;
+  --olive-soft: #e6e6d2;
+  --line: #ddd2c2;
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
   --color-blush: var(--blush);
   --color-blush-2: var(--blush-2);
-  --color-forest: var(--forest);
-  --color-forest-2: var(--forest-2);
+  --color-cocoa: var(--cocoa);
+  --color-cocoa-2: var(--cocoa-2);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-rose: var(--rose);
-  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-lilac: var(--lilac);
+  --color-lilac-deep: var(--lilac-deep);
+  --color-lilac-soft: var(--lilac-soft);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-olive-soft: var(--olive-soft);
   --color-line: var(--line);
   --font-serif: var(--font-newsreader), Georgia, serif;
   --font-sans: var(--font-instrument), system-ui, sans-serif;
@@ -57,12 +71,12 @@ body {
 }
 
 .h-display em {
-  color: var(--rose);
+  color: var(--gold);
   font-style: italic;
 }
 
 .on-dark .h-display em {
-  color: #e9b8c5;
+  color: var(--gold-light);
 }
 
 /* entrada suave dos blocos */
@@ -120,6 +134,6 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--rose);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
 }

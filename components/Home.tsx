@@ -26,7 +26,7 @@ export function Domiciliar() {
             ))}
           </div>
         </Reveal>
-        <Reveal delay={150} className="bg-paper p-7 sm:p-9 border border-ink/10 shadow-[0_30px_60px_-35px_rgba(28,58,51,0.5)]">
+        <Reveal delay={150} className="bg-card p-7 sm:p-9 border border-ink/10 shadow-[0_30px_60px_-35px_rgba(67,55,46,0.5)]">
           <h3 className="font-serif text-[2.2rem] leading-tight">Consulte valores</h3>
           <p className="text-ink-soft text-[0.92rem] leading-relaxed mt-4">
             Solicite à equipe um orçamento para sua necessidade. Área de cobertura, deslocamento, profissionais e
@@ -34,7 +34,7 @@ export function Domiciliar() {
           </p>
           <a
             href={waLink("Olá! Gostaria de consultar valores e disponibilidade para uma consulta domiciliar.")}
-            className="mt-6 flex items-center justify-between bg-forest text-paper px-5 py-4 rounded-sm hover:bg-forest-2 transition-colors text-[0.95rem]"
+            className="mt-6 flex items-center justify-between bg-cocoa text-paper px-5 py-4 rounded-sm hover:bg-cocoa-2 transition-colors text-[0.95rem]"
           >
             Consultar valores da visita <span aria-hidden>↗</span>
           </a>
@@ -65,7 +65,7 @@ export function Locations() {
         </Reveal>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-6">
-          <Reveal className="bg-paper border border-line">
+          <Reveal className="bg-card border border-line">
             <div className="grid grid-cols-2 gap-px bg-line">
               {photos.map(([src, alt]) => (
                 <div key={src} className="relative aspect-[4/3] bg-paper-2">
@@ -92,7 +92,7 @@ export function Locations() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="bg-paper border border-line flex flex-col">
+          <Reveal delay={120} className="bg-card border border-line flex flex-col">
             <div className="grid grid-cols-2 gap-px bg-line">
               <div className="relative aspect-[4/3]">
                 <Image src="/img/equalize-entrada.webp" alt="Entrada do edifício da Clínica Equalize, em Guarulhos" fill sizes="(min-width:1024px) 280px, 45vw" className="object-cover" />

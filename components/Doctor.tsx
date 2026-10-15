@@ -8,7 +8,7 @@ export function Doctor() {
         <div className="relative bg-blush overflow-hidden aspect-[4/5] max-w-[460px] mx-auto lg:mx-0 w-full">
           <span
             aria-hidden
-            className="absolute -right-4 top-6 font-serif italic text-[9rem] leading-none text-rose/15 select-none"
+            className="absolute -right-4 top-6 font-serif italic text-[9rem] leading-none text-gold/15 select-none"
           >
             DC
           </span>
@@ -19,7 +19,7 @@ export function Doctor() {
             sizes="(min-width:1024px) 460px, 90vw"
             className="object-cover object-[50%_20%]"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/85 to-transparent pt-16 pb-5 px-6 text-paper">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cocoa/85 to-transparent pt-16 pb-5 px-6 text-paper">
             <p className="font-serif text-2xl leading-tight">
               Dra. Daniela <i>Costa</i>
             </p>
@@ -60,7 +60,7 @@ export function Doctor() {
             ["3", "estados de experiência: AM, MT e SP"],
           ].map(([n, l]) => (
             <div key={l}>
-              <p className="font-serif text-4xl text-rose">{n}</p>
+              <p className="font-serif text-4xl text-gold">{n}</p>
               <p className="text-[0.78rem] text-ink-soft leading-snug mt-1">{l}</p>
             </div>
           ))}

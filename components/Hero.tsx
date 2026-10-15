@@ -26,7 +26,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rise" style={{ ["--d" as string]: "380ms" }}>
             <a
               href="#planos"
-              className="group inline-flex items-center gap-3 bg-forest text-paper px-6 py-4 rounded-sm text-[0.95rem] hover:bg-forest-2 transition-colors"
+              className="group inline-flex items-center gap-3 bg-cocoa text-paper px-6 py-4 rounded-sm text-[0.95rem] hover:bg-cocoa-2 transition-colors"
             >
               Encontre seu acompanhamento
               <span aria-hidden className="transition-transform group-hover:translate-x-1">
@@ -46,8 +46,8 @@ export function Hero() {
         </div>
 
         <div className="relative rise" style={{ ["--d" as string]: "300ms" }}>
-          <TulipsArt className="w-full max-w-[440px] mx-auto drop-shadow-[0_30px_40px_rgba(28,58,51,0.12)]" />
-          <div className="absolute left-0 sm:left-4 bottom-6 bg-paper/95 backdrop-blur border border-line px-5 py-4 max-w-[230px] shadow-[0_18px_40px_-20px_rgba(28,58,51,0.35)]">
+          <TulipsArt className="w-full max-w-[440px] mx-auto drop-shadow-[0_30px_40px_rgba(67,55,46,0.12)]" />
+          <div className="absolute left-0 sm:left-4 bottom-6 bg-paper/95 backdrop-blur border border-line px-5 py-4 max-w-[230px] shadow-[0_18px_40px_-20px_rgba(67,55,46,0.35)]">
             <p className="font-serif text-[1.55rem] leading-tight mt-1.5">
               No seu tempo.
               <br />

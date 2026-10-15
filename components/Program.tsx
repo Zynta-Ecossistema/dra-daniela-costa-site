@@ -1,9 +1,9 @@
 import { Reveal } from "./Reveal";
 
 const pillars = [
-  ["Mente", "Emoções, sono e estresse."],
-  ["Corpo", "Metabolismo, nutrição e movimento."],
-  ["Hormônios", "Avaliação clínica e acompanhamento das alterações identificadas."],
+  ["Mente", "Emoções, sono e estresse.", "border-lilac"],
+  ["Corpo", "Metabolismo, nutrição e movimento.", "border-olive"],
+  ["Hormônios", "Avaliação clínica e acompanhamento das alterações identificadas.", "border-gold"],
 ];
 
 const problems = [
@@ -36,8 +36,8 @@ export function Program() {
               compreender a saúde física, a rotina, os aspectos emocionais e as necessidades hormonais de cada pessoa.
             </p>
             <ul className="mt-8 space-y-5">
-              {pillars.map(([t, d]) => (
-                <li key={t} className="border-l border-ink/30 pl-5">
+              {pillars.map(([t, d, c]) => (
+                <li key={t} className={`border-l-[3px] ${c} pl-5`}>
                   <p className="font-serif text-2xl">{t}</p>
                   <p className="text-[0.92rem] text-ink-soft mt-1">{d}</p>
                 </li>
@@ -52,7 +52,7 @@ export function Program() {
             </p>
             <div className="mt-8 flex flex-wrap gap-2.5">
               {["Adultos 18+", "Mulheres", "Homens", "Idosos"].map((t) => (
-                <span key={t} className="border border-line bg-paper px-3.5 py-1.5 text-[0.8rem] rounded-full">
+                <span key={t} className="border border-line bg-card px-3.5 py-1.5 text-[0.8rem] rounded-full">
                   {t}
                 </span>
               ))}
@@ -76,13 +76,13 @@ export function Program() {
             </Reveal>
           ))}
         </ol>
-        <p className="mt-10 text-[0.82rem] text-ink-soft border-l-2 border-rose/50 pl-4 max-w-2xl">
+        <p className="mt-10 text-[0.82rem] text-ink-soft border-l-2 border-gold/50 pl-4 max-w-2xl">
           O plano de cuidado e os encaminhamentos são definidos após avaliação. A participação no programa pode ser
           articulada aos profissionais que já acompanham você.
         </p>
       </section>
 
-      <section className="on-dark relative bg-forest text-paper grain overflow-hidden">
+      <section className="on-dark relative bg-cocoa text-paper grain overflow-hidden">
         <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 lg:py-28">
           <Reveal>
             <h2 className="h-display text-[clamp(2.2rem,5vw,3.8rem)] max-w-3xl">

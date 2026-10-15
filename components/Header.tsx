@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <>
-      <div className="bg-forest text-center text-[0.68rem] tracking-[0.18em] uppercase text-paper/80 py-2 px-4">
+      <div className="bg-cocoa text-center text-[0.68rem] tracking-[0.18em] uppercase text-paper/80 py-2 px-4">
         Telemedicina · Presencial · Atendimento domiciliar
       </div>
       <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line">
@@ -52,7 +52,7 @@ export function Header() {
             ))}
             <a
               href="#solicitar"
-              className="ml-2 bg-forest text-paper px-4 py-2.5 rounded-sm hover:bg-forest-2 transition-colors"
+              className="ml-2 bg-cocoa text-paper px-4 py-2.5 rounded-sm hover:bg-cocoa-2 transition-colors"
             >
               Solicitar consulta
             </a>
@@ -101,7 +101,7 @@ export function Header() {
           </a>
           <a
             href={waLink(SOBRE_PLANOS)}
-            className="mt-3 block text-center bg-forest text-paper py-3.5 rounded-sm"
+            className="mt-3 block text-center bg-cocoa text-paper py-3.5 rounded-sm"
           >
             Conversar pelo WhatsApp
           </a>
