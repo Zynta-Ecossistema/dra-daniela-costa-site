@@ -39,7 +39,7 @@ export function Journey() {
           <ol className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
             {steps.map(([t, d], i) => (
               <Reveal as="li" key={t} delay={i * 100} className="relative">
-                <span className="font-serif text-[3.4rem] leading-none text-rose/70">0{i + 1}</span>
+                <span className="font-serif text-[3.4rem] leading-none text-lilac-deep">0{i + 1}</span>
                 <div className="h-px bg-ink/25 my-4" />
                 <h3 className="font-serif text-[1.55rem] leading-tight">{t}</h3>
                 <p className="text-[0.92rem] text-ink-soft leading-relaxed mt-3">{d}</p>
@@ -47,7 +47,7 @@ export function Journey() {
             ))}
           </ol>
 
-          <Reveal className="mt-16 bg-paper border border-line p-6 sm:p-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
+          <Reveal className="mt-16 bg-card border border-line p-6 sm:p-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
             <div>
               <h3 className="font-serif text-[2.1rem] leading-tight">Uma equipe. Prioridades em comum.</h3>
               <p className="text-ink-soft text-[0.92rem] mt-4 leading-relaxed">
@@ -89,7 +89,7 @@ export function Journey() {
           </h3>
         </Reveal>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
-          <Reveal className="border border-line p-7 bg-paper">
+          <Reveal className="border border-line p-7 bg-card">
             <h4 className="font-serif text-[1.5rem] leading-snug">Avaliação que complementa a escuta</h4>
             <ul className="mt-4 space-y-1.5 text-[0.9rem] text-ink-soft list-disc pl-5">
               <li>Bioimpedância</li>
@@ -99,14 +99,14 @@ export function Journey() {
             </ul>
             <p className="text-[0.8rem] text-ink-soft mt-4">Realizados quando clinicamente adequados e tecnicamente viáveis.</p>
           </Reveal>
-          <Reveal delay={100} className="border border-line p-7 bg-paper">
+          <Reveal delay={100} className="border border-line p-7 bg-card">
             <h4 className="font-serif text-[1.5rem] leading-snug">Proximidade que fortalece o cuidado</h4>
             <p className="text-[0.9rem] text-ink-soft mt-4 leading-relaxed">
               Encontros com pacientes e equipe para compartilhar orientações e conversar sobre saúde e qualidade de vida.
             </p>
             <p className="text-[0.8rem] text-ink-soft mt-4">Datas, locais e formato a definir.</p>
           </Reveal>
-          <Reveal delay={200} className="border border-line p-7 bg-paper">
+          <Reveal delay={200} className="border border-line p-7 bg-card">
             <h4 className="font-serif text-[1.5rem] leading-snug">Pacientes e equipe no mesmo encontro</h4>
             <p className="text-[0.9rem] text-ink-soft mt-4 leading-relaxed">
               Momentos de educação em saúde, troca de orientações e conversa, com participação dos pacientes e da

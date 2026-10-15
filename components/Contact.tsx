@@ -27,10 +27,10 @@ function BookingForm() {
     if (!w) window.location.href = url;
   }
 
-  const field = "w-full bg-paper border border-line rounded-sm px-4 py-3.5 text-[0.95rem] focus:border-ink outline-none";
+  const field = "w-full bg-card border border-line rounded-sm px-4 py-3.5 text-[0.95rem] focus:border-ink outline-none";
 
   return (
-    <form onSubmit={submit} className="bg-paper border border-line p-7 sm:p-9">
+    <form onSubmit={submit} className="bg-card border border-line p-7 sm:p-9">
       <h3 className="h-display text-[clamp(1.9rem,3.4vw,2.6rem)]">
         Um próximo passo <em>para cuidar de você.</em>
       </h3>
@@ -52,7 +52,7 @@ function BookingForm() {
                 key={o}
                 aria-pressed={mod === o}
                 onClick={() => setMod(o)}
-                className={`py-3 text-[0.88rem] rounded-sm transition-colors ${mod === o ? "bg-paper shadow-sm font-medium" : "text-ink-soft"}`}
+                className={`py-3 text-[0.88rem] rounded-sm transition-colors ${mod === o ? "bg-card shadow-sm font-medium" : "text-ink-soft"}`}
               >
                 {o === "Presencial em Guarulhos" ? "Presencial · Guarulhos" : o}
               </button>
@@ -74,7 +74,7 @@ function BookingForm() {
         </div>
       </div>
 
-      <button type="submit" className="mt-7 w-full flex items-center justify-between bg-forest text-paper px-5 py-4 rounded-sm hover:bg-forest-2 transition-colors">
+      <button type="submit" className="mt-7 w-full flex items-center justify-between bg-cocoa text-paper px-5 py-4 rounded-sm hover:bg-cocoa-2 transition-colors">
         Preparar solicitação pelo WhatsApp <span aria-hidden>↗</span>
       </button>
       <p className="mt-4 text-[0.78rem] text-ink-soft leading-relaxed">
@@ -87,7 +87,7 @@ function BookingForm() {
 export function Contact() {
   return (
     <>
-      <section id="solicitar" className="bg-sage/50 border-y border-line">
+      <section id="solicitar" className="bg-olive-soft/50 border-y border-line">
         <div className="mx-auto max-w-3xl px-5 py-16 lg:py-24">
           <Reveal>
             <BookingForm />
@@ -95,7 +95,7 @@ export function Contact() {
         </div>
       </section>
 
-      <section id="contato" className="on-dark relative bg-forest text-paper grain overflow-hidden">
+      <section id="contato" className="on-dark relative bg-cocoa text-paper grain overflow-hidden">
         <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 lg:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20">
           <Reveal>
             <h2 className="h-display text-[clamp(2.6rem,6vw,4.6rem)]">
@@ -106,12 +106,12 @@ export function Contact() {
             </p>
             <a
               href={waLink(SOBRE_PLANOS)}
-              className="mt-8 inline-flex w-full sm:w-auto sm:min-w-[340px] items-center justify-between gap-6 bg-blush text-forest px-6 py-4 rounded-sm font-medium hover:bg-paper transition-colors"
+              className="mt-8 inline-flex w-full sm:w-auto sm:min-w-[340px] items-center justify-between gap-6 bg-blush text-cocoa px-6 py-4 rounded-sm font-medium hover:bg-paper transition-colors"
             >
               Conversar pelo WhatsApp <span aria-hidden>↗</span>
             </a>
             <p className="mt-4 text-paper/70 text-[0.95rem]">{WHATSAPP_LABEL}</p>
-            <p className="mt-5 text-[0.8rem] text-paper/55 max-w-sm leading-relaxed">
+            <p className="mt-5 text-[0.8rem] text-paper/70 max-w-sm leading-relaxed">
               O botão abre uma conversa que você pode revisar antes de enviar. Evite compartilhar exames ou dados de saúde
               no primeiro contato.
             </p>

@@ -39,7 +39,7 @@ export function Faq() {
                     className="w-full flex items-center justify-between gap-6 py-5 text-left font-serif text-[1.35rem] leading-snug"
                   >
                     {q}
-                    <span aria-hidden className={`text-rose text-2xl transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                    <span aria-hidden className={`text-gold text-2xl transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
                       +
                     </span>
                   </button>

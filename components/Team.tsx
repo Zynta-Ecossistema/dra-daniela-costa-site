@@ -23,13 +23,13 @@ function Row({ p }: { p: Person }) {
       {p.photo ? (
         <Image src={p.photo} alt={p.name} width={72} height={72} className="h-[72px] w-[72px] rounded-full object-cover object-[50%_26%] shrink-0 border border-line" />
       ) : (
-        <span aria-hidden className="grid place-items-center h-[72px] w-[72px] rounded-full bg-sage font-serif text-2xl text-ink/70 shrink-0">
+        <span aria-hidden className="grid place-items-center h-[72px] w-[72px] rounded-full bg-olive-soft font-serif text-2xl text-ink/70 shrink-0">
           {p.initials}
         </span>
       )}
       <div>
         <p className="font-serif text-[1.5rem] leading-tight">{p.name}</p>
-        <p className="text-[0.88rem] text-rose mt-1">{p.role}</p>
+        <p className="text-[0.88rem] text-gold mt-1">{p.role}</p>
         {p.note && <p className="text-[0.88rem] text-ink-soft mt-1">{p.note}</p>}
         {p.reg && <p className="text-[0.78rem] text-ink-soft mt-1 tracking-wide">{p.reg}</p>}
       </div>
@@ -60,7 +60,7 @@ export function Team() {
             <ul className="px-7 divide-y divide-line">{presencial.map((p) => <Row key={p.name} p={p} />)}</ul>
           </Reveal>
           <Reveal delay={120} className="bg-paper border border-line self-start">
-            <div className="bg-sage px-7 py-8">
+            <div className="bg-olive-soft px-7 py-8">
               <h3 className="font-serif text-[2.3rem]">Equipe online</h3>
               <p className="text-ink-soft text-[0.9rem] mt-2">Consultas por vídeo e telemonitoramento, com o mesmo plano de cuidado.</p>
             </div>
