@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TulipMark } from "./Tulip";
+import Image from "next/image";
 import { waLink, SOBRE_PLANOS } from "@/lib/site";
 
 const links = [
@@ -33,7 +33,7 @@ export function Header() {
       <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-5 h-[68px]">
           <a href="#topo" className="flex items-center gap-3" aria-label="Mente, corpo e hormônios: início">
-            <TulipMark className="h-9 w-7" />
+            <Image src="/img/logo-dc-dourada.webp" alt="" width={64} height={39} priority className="h-auto w-[68px]" />
             <span className="leading-none">
               <span className="block font-serif text-[1.15rem] leading-[1.05]">
                 mente, corpo
