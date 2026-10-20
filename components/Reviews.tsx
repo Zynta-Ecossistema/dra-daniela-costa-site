@@ -24,14 +24,16 @@ function initials(name: string) {
 }
 
 export function Reviews() {
+  const n = REVIEWS.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  // o card em destaque troca sozinho; a lista ao lado rola sem parar (CSS)
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setTimeout(() => setActive((v) => (v + 1) % REVIEWS.length), INTERVAL);
+    if (paused) return;
+    const t = setTimeout(() => setActive((v) => (v + 1) % n), INTERVAL);
     return () => clearTimeout(t);
-  }, [active, paused]);
+  }, [active, paused, n]);
 
   const r = REVIEWS[active];
 
@@ -99,31 +101,34 @@ export function Reviews() {
           </Reveal>
 
           <Reveal delay={120}>
-            <ul className="review-list flex flex-col gap-3 lg:max-h-[600px] lg:overflow-y-auto lg:pr-1" aria-label="Todas as avaliações">
-              {REVIEWS.map((x, n) => (
-                <li key={x.name}>
-                  <button
-                    type="button"
-                    onClick={() => setActive(n)}
-                    aria-current={n === active}
-                    className={`w-full text-left rounded-2xl border p-5 transition-all ${
-                      n === active ? "bg-card border-gold/50 shadow-[0_20px_40px_-28px_rgba(67,55,46,0.5)]" : "bg-card/60 border-line hover:bg-card"
-                    }`}
-                  >
-                    <span className="flex items-center justify-between gap-3">
-                      <span className="flex items-center gap-3 min-w-0">
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush text-cocoa font-serif text-[0.85rem]">
-                          {initials(x.name)}
+            <div className="review-viewport relative h-[420px] lg:h-full lg:min-h-[460px] overflow-hidden">
+              <ul className="review-track absolute inset-x-0 top-0 flex flex-col gap-3" aria-label="Todas as avaliações">
+                {[...REVIEWS, ...REVIEWS].map((x, k) => (
+                  <li key={k} aria-hidden={k >= n}>
+                    <button
+                      type="button"
+                      tabIndex={k >= n ? -1 : 0}
+                      onClick={() => setActive(k % n)}
+                      aria-current={k % n === active}
+                      className={`w-full text-left rounded-2xl border p-5 transition-colors ${
+                        k % n === active ? "bg-card border-gold/50 shadow-[0_20px_40px_-28px_rgba(67,55,46,0.5)]" : "bg-card/60 border-line hover:bg-card"
+                      }`}
+                    >
+                      <span className="flex items-center justify-between gap-3">
+                        <span className="flex items-center gap-3 min-w-0">
+                          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush text-cocoa font-serif text-[0.85rem]">
+                            {initials(x.name)}
+                          </span>
+                          <span className="text-[0.92rem] font-medium truncate">{x.name}</span>
                         </span>
-                        <span className="text-[0.92rem] font-medium truncate">{x.name}</span>
+                        <Stars className="text-gold shrink-0 scale-90 origin-right" />
                       </span>
-                      <Stars className="text-gold shrink-0 scale-90 origin-right" />
-                    </span>
-                    <span className="block font-serif text-[1.02rem] leading-snug text-ink-soft mt-3 line-clamp-3">{x.text}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
+                      <span className="block font-serif text-[1.02rem] leading-snug text-ink-soft mt-3 line-clamp-3">{x.text}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </Reveal>
         </div>
 

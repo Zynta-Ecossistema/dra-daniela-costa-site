@@ -121,6 +121,18 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: none; }
 }
+.review-viewport {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+/* lista duplicada: sobe metade da altura (mais meio gap) e recomeça sem salto */
+@keyframes review-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-50% - 6px)); }
+}
+.review-track { animation: review-scroll 45s linear infinite; }
+.review-viewport:hover .review-track,
+.review-viewport:focus-within .review-track { animation-play-state: paused; }
 .review-in { animation: review-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 @keyframes review-bar {
   from { width: 0; }
