@@ -117,10 +117,35 @@ body {
   animation: sway 7s ease-in-out infinite;
 }
 
+@keyframes review-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.review-in { animation: review-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes review-bar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.review-bar { width: 0; animation: review-bar 8s linear forwards; }
+
 @media (prefers-reduced-motion: reduce) {
+  .review-in, .review-bar { animation: none; }
+  .review-bar { width: 100%; }
   .reveal, .rise { opacity: 1; transform: none; animation: none; transition: none; }
   .sway { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+/* foto do topo: esmaece na base (mobile) e na borda esquerda (desktop) */
+.hero-photo {
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+@media (min-width: 1024px) {
+  .hero-photo {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+  }
 }
 
 .grain::after {

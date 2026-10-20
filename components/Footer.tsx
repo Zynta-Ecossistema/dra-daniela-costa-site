@@ -1,17 +1,17 @@
-import { TulipMark } from "./Tulip";
+import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-paper-2 border-t border-line">
+    <footer className="bg-cocoa text-paper border-t border-paper/10">
       <div className="mx-auto max-w-6xl px-5 py-10 flex flex-col sm:flex-row gap-6 sm:items-center justify-between">
-        <div className="flex items-center gap-3">
-          <TulipMark className="h-9 w-7" />
+        <div className="flex items-center gap-4">
+          <Image src="/img/logo-dc-branca.webp" alt="Dra. Daniela Costa" width={96} height={58} className="h-auto w-[96px]" />
           <p className="font-serif leading-tight">
             Mente, Corpo e Hormônios
-            <span className="block text-[0.62rem] tracking-[0.22em] text-ink-soft font-sans mt-1">MEDICINA INTEGRADA</span>
+            <span className="block text-[0.62rem] tracking-[0.22em] text-paper/70 font-sans mt-1">MEDICINA INTEGRADA</span>
           </p>
         </div>
-        <p className="text-[0.78rem] text-ink-soft leading-relaxed max-w-md">
+        <p className="text-[0.78rem] text-paper/70 leading-relaxed max-w-md">
           Dra. Daniela Lima da Costa · CRM-SP 272263. As informações deste site têm caráter educativo e não substituem
           consulta médica. Cada pessoa é avaliada individualmente.
         </p>

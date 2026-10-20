@@ -1,13 +1,16 @@
-import { TulipsArt } from "./Tulip";
+import Image from "next/image";
+import { HeroBackdrop } from "./HeroBackdrop";
 import { waLink, SOBRE_PLANOS } from "@/lib/site";
 
 export function Hero() {
   return (
     <section id="topo" className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pt-10 pb-14 lg:pt-14 lg:pb-20 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 lg:gap-16 items-center">
-        <div>
+      <HeroBackdrop />
+      <div className="relative z-10 mx-auto max-w-6xl px-5 pt-[400px] pb-14 lg:pt-24 lg:pb-28 lg:min-h-[640px] flex items-center">
+        <div className="lg:max-w-[52%]">
+          <Image src="/img/logo-dc-dourada.webp" alt="" width={96} height={58} priority className="h-auto w-[84px] rise" />
           <h1
-            className="h-display mt-6 text-[clamp(2.6rem,6.6vw,4.4rem)] rise"
+            className="h-display mt-4 text-[clamp(2.6rem,6.6vw,4.4rem)] rise"
             style={{ ["--d" as string]: "120ms" }}
           >
             Sua saúde merece
@@ -45,16 +48,6 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative rise" style={{ ["--d" as string]: "300ms" }}>
-          <TulipsArt className="w-full max-w-[440px] mx-auto drop-shadow-[0_30px_40px_rgba(67,55,46,0.12)]" />
-          <div className="absolute left-0 sm:left-4 bottom-6 bg-paper/95 backdrop-blur border border-line px-5 py-4 max-w-[230px] shadow-[0_18px_40px_-20px_rgba(67,55,46,0.35)]">
-            <p className="font-serif text-[1.55rem] leading-tight mt-1.5">
-              No seu tempo.
-              <br />
-              Com você.
-            </p>
-          </div>
-        </div>
       </div>
 
       <div className="border-y border-line bg-paper-2">

@@ -6,6 +6,7 @@ import { Journey } from "@/components/Journey";
 import { Domiciliar, Locations } from "@/components/Home";
 import { Plans } from "@/components/Plans";
 import { Team } from "@/components/Team";
+import { Reviews } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Page() {
         <Plans />
         <Team />
         <Locations />
+        <Reviews />
         <Faq />
         <Contact />
       </main>
