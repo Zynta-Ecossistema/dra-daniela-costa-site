@@ -24,8 +24,8 @@ export function Experience() {
 
   return (
     <section id="experiencia" className="bg-paper border-y border-line">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:py-28 grid lg:grid-cols-[1fr_0.95fr] gap-12 lg:gap-16 items-start">
-        <div>
+      <div className="mx-auto max-w-6xl px-5 py-16 lg:py-28 grid lg:grid-cols-[1fr_0.95fr] gap-10 lg:gap-x-16 lg:gap-y-0 items-start">
+        <div className="lg:col-start-1 lg:row-start-1">
           <Reveal>
             <h2 className="h-display text-[clamp(2.1rem,4.6vw,3.4rem)]">
               Experiência em <em>diferentes cenários.</em>
@@ -35,59 +35,9 @@ export function Experience() {
               Brasil. Toque em um estado, no mapa ou na lista, para ver onde ela atuou.
             </p>
           </Reveal>
-
-          <div className="mt-9 border-t border-line">
-            {EXPERIENCE.map((g) => {
-              const isOpen = open === g.state;
-              const id = `exp-${UF[g.state]}`;
-              return (
-                <div key={g.state} className="border-b border-line">
-                  <h3>
-                    <button
-                      type="button"
-                      aria-expanded={isOpen}
-                      aria-controls={id}
-                      onClick={() => toggle(g.state)}
-                      onPointerEnter={() => setHover(g.state)}
-                      onPointerLeave={() => setHover((v) => (v === g.state ? null : v))}
-                      className="flex w-full items-center justify-between gap-4 py-5 text-left"
-                    >
-                      <span className={`font-serif text-[1.7rem] uppercase tracking-wide ${g.tone}`}>{g.state}</span>
-                      <span className="flex items-center gap-3 text-[0.82rem] text-ink-soft">
-                        {g.items.length} áreas
-                        <span aria-hidden className={`text-xl leading-none transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
-                          +
-                        </span>
-                      </span>
-                    </button>
-                  </h3>
-                  <div id={id} className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                    <div className="overflow-hidden">
-                      <ul className="mb-5 divide-y divide-line/80 border-y border-line/80" inert={!isOpen}>
-                        {g.items.map((it) => (
-                          <li key={it} className="flex items-center justify-between gap-4 py-2 text-[0.95rem]">
-                            <span>{it}</span>
-                            <a
-                              href={waLink(`Olá! Vi que a Dra. Daniela tem experiência em ${it} (${g.state}) e gostaria de conversar.`)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Conversar pelo WhatsApp sobre ${it}`}
-                              className="shrink-0 grid h-8 w-8 place-items-center rounded-full border border-line bg-card text-cocoa hover:bg-cocoa hover:text-paper transition-colors"
-                            >
-                              <WhatsIcon />
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
-        <Reveal delay={150} className="lg:sticky lg:top-28">
+        <Reveal delay={150} className="lg:sticky lg:top-28 lg:col-start-2 lg:row-start-1 lg:row-span-2">
           <div className="relative mx-auto w-full max-w-[560px]">
             <Image
               src="/img/mapa-brasil.webp"
@@ -155,6 +105,58 @@ export function Experience() {
             })}
           </div>
         </Reveal>
+
+        <div className="lg:col-start-1 lg:row-start-2 lg:mt-9">
+          <div className="border-t border-line">
+            {EXPERIENCE.map((g) => {
+              const isOpen = open === g.state;
+              const id = `exp-${UF[g.state]}`;
+              return (
+                <div key={g.state} className="border-b border-line">
+                  <h3>
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={id}
+                      onClick={() => toggle(g.state)}
+                      onPointerEnter={() => setHover(g.state)}
+                      onPointerLeave={() => setHover((v) => (v === g.state ? null : v))}
+                      className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                    >
+                      <span className={`font-serif text-[1.7rem] uppercase tracking-wide ${g.tone}`}>{g.state}</span>
+                      <span className="flex items-center gap-3 text-[0.82rem] text-ink-soft">
+                        {g.items.length} áreas
+                        <span aria-hidden className={`text-xl leading-none transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                          +
+                        </span>
+                      </span>
+                    </button>
+                  </h3>
+                  <div id={id} className={`grid transition-[grid-template-rows] duration-500 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                    <div className="overflow-hidden">
+                      <ul className="mb-5 divide-y divide-line/80 border-y border-line/80" inert={!isOpen}>
+                        {g.items.map((it) => (
+                          <li key={it} className="flex items-center justify-between gap-4 py-2 text-[0.95rem]">
+                            <span>{it}</span>
+                            <a
+                              href={waLink(`Olá! Vi que a Dra. Daniela tem experiência em ${it} (${g.state}) e gostaria de conversar.`)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Conversar pelo WhatsApp sobre ${it}`}
+                              className="shrink-0 grid h-8 w-8 place-items-center rounded-full border border-line bg-card text-cocoa hover:bg-cocoa hover:text-paper transition-colors"
+                            >
+                              <WhatsIcon />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
