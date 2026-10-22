@@ -5,7 +5,9 @@ import { Program } from "@/components/Program";
 import { Journey } from "@/components/Journey";
 import { Domiciliar, Locations } from "@/components/Home";
 import { Plans } from "@/components/Plans";
-import { Team } from "@/components/Team";
+import { Partners } from "@/components/Partners";
+import { Experience } from "@/components/Experience";
+import { Ensino } from "@/components/Ensino";
 import { Reviews } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
@@ -19,13 +21,15 @@ export default function Page() {
       <main>
         <Hero />
         <Doctor />
+        <Experience />
         <Program />
+        <Reviews />
         <Journey />
         <Domiciliar />
         <Plans />
-        <Team />
+        <Ensino />
+        <Partners />
         <Locations />
-        <Reviews />
         <Faq />
         <Contact />
       </main>

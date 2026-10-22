@@ -13,11 +13,11 @@ export function Doctor() {
             DC
           </span>
           <Image
-            src="/img/dra-livros.webp"
-            alt="Dra. Daniela Lima da Costa sentada em uma cadeira de madeira, apoiada sobre livros de medicina"
+            src="/img/dra-sofa-azul.webp"
+            alt="Dra. Daniela Lima da Costa sorrindo, sentada em um sofá claro, de terno azul"
             fill
             sizes="(min-width:1024px) 460px, 90vw"
-            className="object-cover object-[50%_20%]"
+            className="object-cover object-[50%_28%]"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cocoa/85 to-transparent pt-16 pb-5 px-6 text-paper">
             <p className="font-serif text-2xl leading-tight">
@@ -66,8 +66,8 @@ export function Doctor() {
           ))}
         </Reveal>
         <Reveal delay={260} className="mt-8">
-          <a href="#equipe" className="border-b border-ink/40 pb-1 text-[0.95rem] hover:border-ink transition-colors">
-            Conheça a equipe multiprofissional ↓
+          <a href="#parceiros" className="border-b border-ink/40 pb-1 text-[0.95rem] hover:border-ink transition-colors">
+            Conheça os parceiros ↓
           </a>
         </Reveal>
       </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Reveal } from "./Reveal";
-import { DOCTORALIA_URL, REVIEWS } from "@/lib/site";
+import { DOCTORALIA_URL, GOOGLE_URL, REVIEWS, VIDEOS, type PatientVideo } from "@/lib/site";
 
 const INTERVAL = 8000;
 
@@ -21,6 +21,28 @@ function Stars({ className = "" }: { className?: string }) {
 function initials(name: string) {
   const p = name.split(" ").filter((w) => w.length > 2 || /^[A-Z]/.test(w));
   return (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : "")).toUpperCase();
+}
+
+function VideoCard({ v }: { v: PatientVideo }) {
+  return (
+    <figure className="overflow-hidden rounded-2xl bg-cocoa border border-line">
+      <div className="relative aspect-[9/16] sm:aspect-video bg-cocoa">
+        {v.youtube ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${v.youtube}`}
+            title={v.title}
+            loading="lazy"
+            allow="accelerometer; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full"
+          />
+        ) : (
+          <video src={v.src} poster={v.poster} controls preload="none" playsInline className="absolute inset-0 h-full w-full object-cover" />
+        )}
+      </div>
+      <figcaption className="px-5 py-4 text-[0.9rem] text-paper/85">{v.title}</figcaption>
+    </figure>
+  );
 }
 
 export function Reviews() {
@@ -46,7 +68,7 @@ export function Reviews() {
           </h2>
           <p className="flex items-center gap-3 text-[0.88rem] text-ink-soft">
             <Stars className="text-gold" />
-            Avaliações de pacientes no Doctoralia
+            {GOOGLE_URL ? "Avaliações de pacientes no Doctoralia e no Google" : "Avaliações de pacientes no Doctoralia"}
           </p>
         </Reveal>
 
@@ -69,7 +91,7 @@ export function Reviews() {
                   </span>
                   <div>
                     <p className="font-medium leading-tight">{r.name}</p>
-                    <p className="text-[0.8rem] text-paper/70 mt-0.5">{r.verified}</p>
+                    <p className="text-[0.8rem] text-paper/70 mt-0.5">{r.verified ? `${r.verified} · ${r.source}` : r.source}</p>
                   </div>
                 </div>
                 <Stars className="text-gold-light mt-1.5" />
@@ -82,13 +104,15 @@ export function Reviews() {
                 {r.text}
               </blockquote>
 
-              <div className="mt-7 rounded-2xl bg-paper/10 px-5 py-4">
-                <p className="text-[0.78rem] text-gold-light">Resposta da Dra. Daniela</p>
-                <p className="text-[0.9rem] text-paper/85 mt-1 leading-relaxed">{r.reply}</p>
-              </div>
+              {r.reply && (
+                <div className="mt-7 rounded-2xl bg-paper/10 px-5 py-4">
+                  <p className="text-[0.78rem] text-gold-light">Resposta da Dra. Daniela</p>
+                  <p className="text-[0.9rem] text-paper/85 mt-1 leading-relaxed">{r.reply}</p>
+                </div>
+              )}
 
               <p className="mt-5 text-[0.8rem] text-paper/70">
-                {r.date} · {r.context}
+                {[r.date, r.context].filter(Boolean).join(" · ")}
               </p>
             </div>
 
@@ -132,18 +156,46 @@ export function Reviews() {
           </Reveal>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        {VIDEOS.length > 0 && (
+          <div className="mt-16">
+            <h3 className="font-serif text-[clamp(1.8rem,3.2vw,2.4rem)]">
+              Relatos <em className="text-gold">em vídeo.</em>
+            </h3>
+            <ul className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {VIDEOS.map((v) => (
+                <li key={v.title}>
+                  <VideoCard v={v} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="mt-10 pt-6 border-t border-line flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <p className="text-[0.8rem] text-ink-soft max-w-xl">
-            Avaliações publicadas por pacientes no perfil da Dra. Daniela no Doctoralia. Refletem experiências individuais.
+            Avaliações publicadas por pacientes nos perfis da Dra. Daniela no {GOOGLE_URL ? "Doctoralia e no Google" : "Doctoralia"}.
+            Refletem experiências individuais.
           </p>
-          <a
-            href={DOCTORALIA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-between gap-6 bg-cocoa text-paper px-6 py-4 rounded-full text-[0.92rem] hover:bg-cocoa-2 transition-colors"
-          >
-            Ver mais avaliações no Doctoralia <span aria-hidden>↗</span>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href={DOCTORALIA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-between gap-6 bg-cocoa text-paper px-6 py-4 rounded-full text-[0.92rem] hover:bg-cocoa-2 transition-colors"
+            >
+              Ver mais avaliações no Doctoralia <span aria-hidden>↗</span>
+            </a>
+            {GOOGLE_URL && (
+              <a
+                href={GOOGLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between gap-6 border border-cocoa text-cocoa px-6 py-4 rounded-full text-[0.92rem] hover:bg-cocoa hover:text-paper transition-colors"
+              >
+                Ver avaliações no Google <span aria-hidden>↗</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </section>

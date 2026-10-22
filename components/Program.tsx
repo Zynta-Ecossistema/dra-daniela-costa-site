@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { PROBLEM_PHOTOS } from "@/lib/site";
 
 const pillars = [
   ["Mente", "Emoções, sono e estresse.", "border-lilac"],
@@ -47,16 +49,21 @@ export function Program() {
 
           <Reveal delay={150} className="lg:pt-24">
             <p className="font-serif text-[clamp(1.6rem,3vw,2.2rem)] leading-snug">
-              Um programa de 4 ou 6 meses para acompanhar sua saúde com continuidade e participação de uma equipe
-              multiprofissional.
+              Um acompanhamento da sua saúde com continuidade e participação de uma equipe multiprofissional.
             </p>
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {["Adultos 18+", "Mulheres", "Homens", "Idosos"].map((t) => (
-                <span key={t} className="border border-line bg-card px-3.5 py-1.5 text-[0.8rem] rounded-full">
+            <p className="mt-10 font-serif text-[1.35rem]">Para quem é</p>
+            <ul className="mt-4 grid grid-cols-2 gap-3 max-w-md">
+              {[
+                ["Adultos 18+", "border-t-lilac"],
+                ["Mulheres", "border-t-gold"],
+                ["Homens", "border-t-olive"],
+                ["Idosos", "border-t-lilac-deep"],
+              ].map(([t, c]) => (
+                <li key={t} className={`bg-card border border-line border-t-[3px] ${c} px-5 py-5 font-serif text-[1.45rem] leading-tight shadow-[0_18px_36px_-28px_rgba(67,55,46,0.45)]`}>
                   {t}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
             <p className="mt-6 text-[0.88rem] text-ink-soft leading-relaxed max-w-md">
               A partir de 18 anos, com atenção às diferentes fases da vida e às necessidades de cada pessoa.
             </p>
@@ -71,6 +78,20 @@ export function Program() {
         <ol className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
           {problems.map(([t, d], i) => (
             <Reveal as="li" key={t} delay={(i % 3) * 90} className="border-t border-ink/25 pt-5">
+              <div className="relative aspect-[4/3] overflow-hidden bg-blush-2 mb-5">
+                {PROBLEM_PHOTOS[t] ? (
+                  <Image
+                    src={PROBLEM_PHOTOS[t]!.src}
+                    alt=""
+                    fill
+                    sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 90vw"
+                    className="object-cover"
+                    style={{ objectPosition: PROBLEM_PHOTOS[t]!.pos }}
+                  />
+                ) : (
+                  <Image src="/img/logo-dc-dourada.webp" alt="" width={140} height={85} className="absolute inset-0 m-auto h-auto w-[140px] opacity-60" />
+                )}
+              </div>
               <h3 className="font-serif text-[1.6rem] leading-tight">{t}</h3>
               <p className="text-[0.92rem] text-ink-soft leading-relaxed mt-3">{d}</p>
             </Reveal>

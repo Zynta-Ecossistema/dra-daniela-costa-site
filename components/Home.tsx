@@ -11,19 +11,25 @@ export function Domiciliar() {
             Cuidado que chega <em>até você.</em>
           </h2>
           <p className="mt-6 font-serif text-[1.35rem] leading-snug max-w-xl">
-            Consulta domiciliar para idosos, pessoas com mobilidade reduzida e pacientes acamados.
+            Consulta domiciliar para idosos, pacientes acamados e pessoas com mobilidade reduzida.
           </p>
           <p className="mt-5 text-ink-soft leading-[1.75] max-w-xl">
             O atendimento médico no conforto do lar permite conhecer as necessidades do paciente e sua rotina, acolher a
             família e orientar o acompanhamento clínico. A participação de enfermagem, nutrição, psicologia e educação
             física é organizada conforme necessidade, disponibilidade e contratação.
           </p>
-          <div className="mt-7 flex flex-wrap gap-2.5">
-            {["Idosos", "Mobilidade reduzida", "Pacientes acamados"].map((t) => (
-              <span key={t} className="border border-ink/25 bg-paper/60 px-3.5 py-1.5 text-[0.8rem] rounded-full">
-                {t}
-              </span>
-            ))}
+          <div className="mt-8 max-w-xl border-l-[3px] border-gold bg-card/80 px-6 py-5">
+            <p className="font-serif text-[clamp(1.5rem,2.6vw,1.95rem)] leading-tight">
+              Pensado para <em className="text-gold">pessoas idosas e acamadas.</em>
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              {["Idosos", "Pacientes acamados"].map((t) => (
+                <span key={t} className="bg-cocoa text-paper px-4 py-2 text-[0.88rem] rounded-full">
+                  {t}
+                </span>
+              ))}
+              <span className="border border-ink/25 bg-paper/60 px-4 py-2 text-[0.88rem] rounded-full">Mobilidade reduzida</span>
+            </div>
           </div>
         </Reveal>
         <Reveal delay={150} className="bg-card p-7 sm:p-9 border border-ink/10 shadow-[0_30px_60px_-35px_rgba(67,55,46,0.5)]">
@@ -66,15 +72,15 @@ export function Locations() {
 
         <div className="mt-12 grid lg:grid-cols-2 gap-6">
           <Reveal className="bg-card border border-line">
-            <div className="grid grid-cols-2 gap-px bg-line">
+            <div className="grid grid-cols-2 grid-rows-2 gap-px bg-line aspect-[4/3]">
               {photos.map(([src, alt]) => (
-                <div key={src} className="relative aspect-[4/3] bg-paper-2">
+                <div key={src} className="relative bg-paper-2">
                   <Image src={src} alt={alt} fill sizes="(min-width:1024px) 280px, 45vw" className="object-cover" />
                 </div>
               ))}
             </div>
             <div className="p-7">
-              <Image src="/img/vida-logo.webp" alt="Espaço Vida Acolhida" width={180} height={104} className="mb-5 h-auto w-[180px] mix-blend-multiply" />
+              <Image src="/img/vida-logo.webp" alt="Espaço Vida Acolhida" width={180} height={104} className="mb-5 h-[64px] w-auto object-contain object-left mix-blend-multiply" />
               <h3 className="font-serif text-[1.8rem]">Espaço Vida Acolhida</h3>
               <p className="text-ink-soft mt-2 leading-relaxed">
                 R. Silvestre Vasconcelos Calmon, 190
@@ -93,16 +99,16 @@ export function Locations() {
           </Reveal>
 
           <Reveal delay={120} className="bg-card border border-line flex flex-col">
-            <div className="grid grid-cols-2 gap-px bg-line">
-              <div className="relative aspect-[4/3]">
+            <div className="grid grid-cols-2 gap-px bg-line aspect-[4/3]">
+              <div className="relative">
                 <Image src="/img/equalize-entrada.webp" alt="Entrada do edifício da Clínica Equalize, em Guarulhos" fill sizes="(min-width:1024px) 280px, 45vw" className="object-cover" />
               </div>
-              <div className="relative aspect-[4/3]">
+              <div className="relative">
                 <Image src="/img/equalize-predio.webp" alt="Fachada do edifício, número 159" fill sizes="(min-width:1024px) 280px, 45vw" className="object-cover" />
               </div>
             </div>
             <div className="p-7 flex-1">
-              <Image src="/img/equalize-logo.webp" alt="Clínica Equalize" width={180} height={98} className="mb-5 h-auto w-[180px] mix-blend-multiply" />
+              <Image src="/img/equalize-logo.webp" alt="Clínica Equalize" width={180} height={98} className="mb-5 h-[64px] w-auto object-contain object-left mix-blend-multiply" />
               <h3 className="font-serif text-[1.8rem]">Clínica Equalize</h3>
               <p className="text-ink-soft mt-2 leading-relaxed">
                 R. Dr. Ramos de Azevedo, 159

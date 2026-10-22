@@ -1,24 +1,29 @@
 import Image from "next/image";
-import { HeroBackdrop } from "./HeroBackdrop";
 import { waLink, SOBRE_PLANOS } from "@/lib/site";
 
 export function Hero() {
   return (
     <section id="topo" className="relative overflow-hidden">
-      <HeroBackdrop />
-      <div
-        className="absolute z-10 right-5 top-5 lg:right-8 lg:top-8 bg-cocoa/55 backdrop-blur-sm px-4 py-3 rise"
-        style={{ ["--d" as string]: "700ms" }}
-      >
+      <div className="hero-photo absolute inset-x-0 top-0 h-[470px] lg:inset-x-auto lg:right-0 lg:h-full lg:w-[62%]">
         <Image
-          src="/img/logo-dc-branca.webp"
-          alt="Dra. Daniela Costa"
-          width={120}
-          height={73}
+          src="/img/dra-luz.webp"
+          alt="Dra. Daniela Costa sorrindo, de braços cruzados, em ambiente claro"
+          fill
           priority
-          className="h-auto w-[72px] lg:w-[104px]"
+          sizes="(min-width:1024px) 62vw, 100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 25%" }}
         />
       </div>
+      <Image
+        src="/img/logo-dc-dourada.webp"
+        alt="Dra. Daniela Costa"
+        width={120}
+        height={73}
+        priority
+        className="absolute z-10 right-5 top-5 lg:right-8 lg:top-8 h-auto w-[84px] lg:w-[116px] drop-shadow-[0_1px_8px_rgba(255,250,240,0.7)] rise"
+        style={{ ["--d" as string]: "700ms" }}
+      />
       <div className="relative z-10 mx-auto max-w-6xl px-5 pt-[400px] pb-14 lg:pt-24 lg:pb-28 lg:min-h-[640px] flex items-center">
         <div className="lg:max-w-[52%]">
           <h1
