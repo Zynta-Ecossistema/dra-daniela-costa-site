@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { EXPERIENCE, waLink } from "@/lib/site";
+import { MAP_LAYERS } from "@/lib/map-layers";
 
 function WhatsIcon() {
   return (
@@ -13,12 +14,8 @@ function WhatsIcon() {
   );
 }
 
-// posição de cada pino no mapa (em % da imagem)
-const PINS: Record<string, { x: number; y: number; uf: string }> = {
-  Amazonas: { x: 30.6, y: 22, uf: "AM" },
-  "Mato Grosso": { x: 50.8, y: 51.5, uf: "MT" },
-  "São Paulo": { x: 67.3, y: 70.5, uf: "SP" },
-};
+// sigla de cada estado (usada nos ids e nas camadas do mapa)
+const UF: Record<string, string> = { Amazonas: "AM", "Mato Grosso": "MT", "São Paulo": "SP" };
 
 export function Experience() {
   const [open, setOpen] = useState<string | null>(null);
@@ -34,14 +31,14 @@ export function Experience() {
             </h2>
             <p className="mt-5 text-ink-soft max-w-md leading-relaxed">
               Cuidar de pessoas levou a Dra. Daniela a conhecer realidades, culturas e histórias em diferentes regiões do
-              Brasil. Toque em um estado, na lista ou no mapa, para ver onde ela atuou.
+              Brasil. Toque em um estado, no mapa ou na lista, para ver onde ela atuou.
             </p>
           </Reveal>
 
           <div className="mt-9 border-t border-line">
             {EXPERIENCE.map((g) => {
               const isOpen = open === g.state;
-              const id = `exp-${PINS[g.state].uf}`;
+              const id = `exp-${UF[g.state]}`;
               return (
                 <div key={g.state} className="border-b border-line">
                   <h3>
@@ -98,25 +95,28 @@ export function Experience() {
               className="h-auto w-full drop-shadow-[0_24px_30px_rgba(67,55,46,0.18)]"
             />
             {EXPERIENCE.map((g) => {
-              const pin = PINS[g.state];
+              const uf = UF[g.state];
+              const l = MAP_LAYERS[uf];
               const isOpen = open === g.state;
               return (
-                <button
+                <div
                   key={g.state}
-                  type="button"
-                  onClick={() => toggle(g.state)}
-                  aria-label={`${g.state}: ${isOpen ? "recolher" : "ver"} áreas de atuação`}
-                  aria-pressed={isOpen}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 grid h-14 w-14 place-items-center rounded-full"
-                  style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
+                  className={`pointer-events-none absolute origin-center transition-[transform,filter] duration-500 ease-out hover:z-20 hover:scale-[1.07] hover:drop-shadow-[0_18px_22px_rgba(40,30,22,0.45)] ${
+                    isOpen ? "z-30 scale-[1.1] drop-shadow-[0_22px_26px_rgba(40,30,22,0.5)]" : "z-10"
+                  }`}
+                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%` }}
                 >
-                  <span
-                    aria-hidden
-                    className={`h-11 w-11 rounded-full border-2 transition-all duration-300 ${
-                      isOpen ? "border-paper bg-paper/25 scale-110 shadow-[0_0_0_6px_rgba(247,241,231,0.35)]" : "border-paper/0 bg-transparent hover:border-paper/80"
-                    }`}
-                  />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => toggle(g.state)}
+                    aria-label={`${g.state}: ${isOpen ? "recolher" : "ver"} áreas de atuação`}
+                    aria-pressed={isOpen}
+                    className="pointer-events-auto absolute inset-0 cursor-pointer outline-none focus-visible:drop-shadow-[0_0_0_#8c5e1a]"
+                    style={{ clipPath: l.clip }}
+                  >
+                    <Image src={`/img/estado-${uf.toLowerCase()}.webp`} alt="" width={l.w} height={l.h} sizes="320px" className="h-full w-full select-none" draggable={false} />
+                  </button>
+                </div>
               );
             })}
           </div>
