@@ -6,13 +6,13 @@ export function Hero() {
     <section id="topo" className="relative overflow-hidden">
       <div className="hero-photo absolute inset-x-0 top-0 h-[470px] lg:inset-x-auto lg:right-0 lg:h-full lg:w-[62%]">
         <Image
-          src="/img/dra-banner.webp"
-          alt="Dra. Daniela Costa sorrindo, de blazer branco, com a mão no queixo"
+          src="/img/dra-banner-v2.webp"
+          alt="Dra. Daniela Costa sorrindo, de terno branco, em um consultório claro"
           fill
           priority
           sizes="(min-width:1024px) 62vw, 100vw"
           className="object-cover"
-          style={{ objectPosition: "50% 4%" }}
+          style={{ objectPosition: "50% 14%" }}
         />
       </div>
       <div className="relative z-10 mx-auto max-w-6xl px-5 pt-[400px] pb-14 lg:pt-24 lg:pb-28 lg:min-h-[640px] flex items-center">
