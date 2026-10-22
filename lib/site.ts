@@ -50,12 +50,12 @@ export type Review = {
   name: string;
   verified?: "Consulta verificada" | "Opinião verificada";
   text: string;
-  date: string;
-  context: string;
+  date?: string;
+  context?: string;
   reply?: string;
 };
 
-// Avaliações públicas do perfil da Dra. no Doctoralia, transcritas como publicadas.
+// Avaliações públicas do Doctoralia e do Google, transcritas como publicadas (sem emojis). O Google não traz data exata, só "há X meses".
 export const REVIEWS: Review[] = [
   {
     source: "Doctoralia",
@@ -67,6 +67,11 @@ export const REVIEWS: Review[] = [
     reply: "Bom Dia!! Carlos Daniel, agradeço pela confiança e carinho, estamos a disposição. Forte abraço!",
   },
   {
+    source: "Google",
+    name: "Dayanne Celestino de Oliveira",
+    text: "A Dra Daniela juntamente com a sua equipe são maravilhosos, atenciosos e o atendimento é de excelência. Desde que iniciei no programa vi que o atendimento era diferenciado, a Dra me fez várias perguntas, passou vários exames e me medicou conforme os sintomas que estava sentindo, graças a Deus melhorei e muito, minha energia foi restaurada e agora posso dizer que estou no caminho da qualidade de vida. O acompanhamento da Enfermeira Rebeca nas consultas faz toda diferença na nossa saúde, nas orientações e nas aplicações das medicações. Gratidão por todo apoio e acompanhamento Dra e a equipe.",
+  },
+  {
     source: "Doctoralia",
     name: "Laura Lima",
     verified: "Consulta verificada",
@@ -74,6 +79,11 @@ export const REVIEWS: Review[] = [
     date: "27 de agosto de 2024",
     context: "Teleconsulta",
     reply: "Olá, Dona Laura, muito obrigada pelo carinho e confiança. Forte abraço!",
+  },
+  {
+    source: "Google",
+    name: "Alexandre Rodrigues",
+    text: "Uma excelente profissional quando fui atendido por ela foi muito atenciosa ,que Deus continue abençoando grandemente sua vida",
   },
   {
     source: "Doctoralia",
@@ -85,6 +95,11 @@ export const REVIEWS: Review[] = [
     reply: "Olá, Sr. Benigno, agradeço pela confiança. Forte abraço!",
   },
   {
+    source: "Google",
+    name: "Daniela Santos",
+    text: "Uma excelente profissional super indico sempre preocupada com agente obrigada Dra Daniela Lima por ter cuidado tão bem de mim",
+  },
+  {
     source: "Doctoralia",
     name: "Wilson Leal",
     verified: "Opinião verificada",
@@ -94,6 +109,11 @@ export const REVIEWS: Review[] = [
     reply: "Olá, Sr. Wilson, agradeço pela confiança. Forte abraço!!",
   },
   {
+    source: "Google",
+    name: "Soraia Souza",
+    text: "Dr Daniela é uma excelente profissional. Atenciosa, tem empatia , passa segurança, e resolve os problemas de nossa saúde, vale a pena conhecer eu recomendo.",
+  },
+  {
     source: "Doctoralia",
     name: "Gyselia de Nazaré Franco Macena",
     verified: "Consulta verificada",
@@ -101,6 +121,11 @@ export const REVIEWS: Review[] = [
     date: "31 de julho de 2024",
     context: "Consulta",
     reply: "Olá, Sra Gyselia, foi um grade prazer em atender. Estamos sempre prontos para receber com todo carinho. Forte abraço!!",
+  },
+  {
+    source: "Google",
+    name: "Karimme Martins",
+    text: "Atendimento excelente e prático principalmente para mim que moro no interior do estado e muitas vezes não tem recursos para chegar até a capital.",
   },
   {
     source: "Doctoralia",

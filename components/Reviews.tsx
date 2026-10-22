@@ -101,7 +101,11 @@ export function Reviews() {
               <span aria-hidden className="font-serif text-[4.5rem] leading-none text-gold-light/80 mt-8 h-10">
                 “
               </span>
-              <blockquote className="font-serif text-[clamp(1.5rem,2.7vw,2.15rem)] leading-[1.22] mt-3 flex-1">
+              <blockquote
+                className={`font-serif leading-[1.22] mt-3 flex-1 ${
+                  r.text.length > 240 ? "text-[clamp(1.2rem,1.9vw,1.55rem)]" : "text-[clamp(1.5rem,2.7vw,2.15rem)]"
+                }`}
+              >
                 {r.text}
               </blockquote>
 
@@ -112,9 +116,9 @@ export function Reviews() {
                 </div>
               )}
 
-              <p className="mt-5 text-[0.8rem] text-paper/70">
-                {[r.date, r.context].filter(Boolean).join(" · ")}
-              </p>
+              {(r.date || r.context) && (
+                <p className="mt-5 text-[0.8rem] text-paper/70">{[r.date, r.context].filter(Boolean).join(" · ")}</p>
+              )}
             </div>
 
             <div className="relative mt-6 h-px bg-paper/20" aria-hidden>
