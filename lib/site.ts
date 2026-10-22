@@ -120,14 +120,14 @@ export const GOOGLE_URL = "https://share.google/Cpk7MjXd6eh02kwKj";
 export type PatientVideo = { title: string; src?: string; youtube?: string; poster?: string };
 export const VIDEOS: PatientVideo[] = [];
 
-// Fotos dos cards "Quais problemas ajudamos a cuidar?" (banco de imagens Pexels, licença livre). Sem foto, o card mostra a logo.
+// Fotos dos cards "Quais problemas ajudamos a cuidar?". Sem foto, o card mostra a logo.
 export const PROBLEM_PHOTOS: Record<string, { src: string; pos: string; alt: string } | undefined> = {
-  "Peso & metabolismo": { src: "/img/prob-peso.webp", pos: "50% 55%", alt: "Mãos segurando uma tigela com refeição colorida e equilibrada" },
-  "Mulher 40+": { src: "/img/prob-mulher.webp", pos: "50% 25%", alt: "Mulher madura sorrindo, à beira de um lago" },
-  "Saúde do homem 40+": { src: "/img/prob-homem.webp", pos: "50% 30%", alt: "Homem maduro sorrindo ao ar livre" },
-  "Saúde emocional & sono": { src: "/img/prob-sono.webp", pos: "50% 55%", alt: "Mulher dormindo tranquila em uma cama de lençóis brancos" },
-  "Dor, ossos & movimento": { src: "/img/prob-movimento.webp", pos: "50% 50%", alt: "Mulher madura alongando as costas sobre uma bola de exercício" },
-  "Doenças crônicas": { src: "/img/prob-cronicas.webp", pos: "50% 50%", alt: "Profissional de saúde medindo a pressão arterial de um paciente" },
+  "Peso & metabolismo": { src: "/img/tema-peso.webp", pos: "50% 62%", alt: "Mulher medindo a cintura com uma fita métrica" },
+  "Mulher 40+": { src: "/img/tema-mulher.webp", pos: "40% 32%", alt: "Mulher madura sorrindo de perfil, em frente a uma janela com cortina clara" },
+  "Saúde do homem 40+": { src: "/img/tema-homem.webp", pos: "50% 30%", alt: "Homem de barba grisalha sorrindo, com um tapete de exercício e uma garrafa de água" },
+  "Saúde emocional & sono": { src: "/img/tema-sono.webp", pos: "50% 38%", alt: "Mulher sorrindo deitada na cama, com máscara de dormir sobre os olhos" },
+  "Dor, ossos & movimento": { src: "/img/tema-movimento.webp", pos: "60% 55%", alt: "Mão de uma mulher madura sobre o joelho" },
+  "Doenças crônicas": { src: "/img/tema-cronicas.webp", pos: "50% 55%", alt: "Profissional de saúde medindo a glicemia de um paciente" },
 };
 
 export const EXPERIENCE = [
