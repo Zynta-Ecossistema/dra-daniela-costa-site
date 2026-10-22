@@ -5,6 +5,10 @@ export function waLink(text: string) {
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 }
 
+export function waTo(number: string, text: string) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+}
+
 export const SOBRE_PLANOS = "Olá! Gostaria de conversar sobre o acompanhamento Mente, Corpo e Hormônios.";
 
 export type Modality = "tele" | "pres";
