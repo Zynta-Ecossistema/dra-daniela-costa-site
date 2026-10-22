@@ -1,10 +1,20 @@
-import { HeroBackdrop } from "./HeroBackdrop";
+import Image from "next/image";
 import { waLink, SOBRE_PLANOS } from "@/lib/site";
 
 export function Hero() {
   return (
     <section id="topo" className="relative overflow-hidden">
-      <HeroBackdrop />
+      <div className="hero-photo absolute inset-x-0 top-0 h-[470px] lg:inset-x-auto lg:right-0 lg:h-full lg:w-[62%]">
+        <Image
+          src="/img/dra-banner.webp"
+          alt="Dra. Daniela Costa sorrindo, de blazer branco, com a mão no queixo"
+          fill
+          priority
+          sizes="(min-width:1024px) 62vw, 100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 4%" }}
+        />
+      </div>
       <div className="relative z-10 mx-auto max-w-6xl px-5 pt-[400px] pb-14 lg:pt-24 lg:pb-28 lg:min-h-[640px] flex items-center">
         <div className="lg:max-w-[52%]">
           <h1
