@@ -82,7 +82,7 @@ export function Program() {
                 {PROBLEM_PHOTOS[t] ? (
                   <Image
                     src={PROBLEM_PHOTOS[t]!.src}
-                    alt=""
+                    alt={PROBLEM_PHOTOS[t]!.alt}
                     fill
                     sizes="(min-width:1024px) 360px, (min-width:640px) 45vw, 90vw"
                     className="object-cover"

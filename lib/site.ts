@@ -120,11 +120,14 @@ export const GOOGLE_URL = "https://share.google/Cpk7MjXd6eh02kwKj";
 export type PatientVideo = { title: string; src?: string; youtube?: string; poster?: string };
 export const VIDEOS: PatientVideo[] = [];
 
-// Fotos dos cards "Quais problemas ajudamos a cuidar?". Sem foto, o card mostra a logo como reserva.
-export const PROBLEM_PHOTOS: Record<string, { src: string; pos: string } | undefined> = {
-  "Mulher 40+": { src: "/img/dra-jardim-rosa.webp", pos: "50% 22%" },
-  "Saúde emocional & sono": { src: "/img/dra-cafe.webp", pos: "50% 22%" },
-  "Doenças crônicas": { src: "/img/dra-escritorio.webp", pos: "50% 38%" },
+// Fotos dos cards "Quais problemas ajudamos a cuidar?" (banco de imagens Pexels, licença livre). Sem foto, o card mostra a logo.
+export const PROBLEM_PHOTOS: Record<string, { src: string; pos: string; alt: string } | undefined> = {
+  "Peso & metabolismo": { src: "/img/prob-peso.webp", pos: "50% 55%", alt: "Mãos segurando uma tigela com refeição colorida e equilibrada" },
+  "Mulher 40+": { src: "/img/prob-mulher.webp", pos: "50% 25%", alt: "Mulher madura sorrindo, à beira de um lago" },
+  "Saúde do homem 40+": { src: "/img/prob-homem.webp", pos: "50% 30%", alt: "Homem maduro sorrindo ao ar livre" },
+  "Saúde emocional & sono": { src: "/img/prob-sono.webp", pos: "50% 55%", alt: "Mulher dormindo tranquila em uma cama de lençóis brancos" },
+  "Dor, ossos & movimento": { src: "/img/prob-movimento.webp", pos: "50% 50%", alt: "Mulher madura alongando as costas sobre uma bola de exercício" },
+  "Doenças crônicas": { src: "/img/prob-cronicas.webp", pos: "50% 50%", alt: "Profissional de saúde medindo a pressão arterial de um paciente" },
 };
 
 export const EXPERIENCE = [
