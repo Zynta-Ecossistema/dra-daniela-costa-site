@@ -114,7 +114,7 @@ export const REVIEWS: Review[] = [
 ];
 
 // Perfil da Dra. no Google Meu Negócio. Preencher a URL e adicionar as avaliações em REVIEWS com source "Google".
-export const GOOGLE_URL = "";
+export const GOOGLE_URL = "https://share.google/Cpk7MjXd6eh02kwKj";
 
 // Relatos em vídeo de pacientes. Cada item é um arquivo em public/videos (src) ou um id do YouTube.
 export type PatientVideo = { title: string; src?: string; youtube?: string; poster?: string };

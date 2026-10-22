@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 import { DOCTORALIA_URL, GOOGLE_URL, REVIEWS, VIDEOS, type PatientVideo } from "@/lib/site";
 
 const INTERVAL = 8000;
+const HAS_GOOGLE = REVIEWS.some((r) => r.source === "Google");
 
 function Stars({ className = "" }: { className?: string }) {
   return (
@@ -68,7 +69,7 @@ export function Reviews() {
           </h2>
           <p className="flex items-center gap-3 text-[0.88rem] text-ink-soft">
             <Stars className="text-gold" />
-            {GOOGLE_URL ? "Avaliações de pacientes no Doctoralia e no Google" : "Avaliações de pacientes no Doctoralia"}
+            {HAS_GOOGLE ? "Avaliações de pacientes no Doctoralia e no Google" : "Avaliações de pacientes no Doctoralia"}
           </p>
         </Reveal>
 
@@ -173,7 +174,7 @@ export function Reviews() {
 
         <div className="mt-10 pt-6 border-t border-line flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <p className="text-[0.8rem] text-ink-soft max-w-xl">
-            Avaliações publicadas por pacientes nos perfis da Dra. Daniela no {GOOGLE_URL ? "Doctoralia e no Google" : "Doctoralia"}.
+            Avaliações publicadas por pacientes nos perfis da Dra. Daniela no {HAS_GOOGLE ? "Doctoralia e no Google" : "Doctoralia"}.
             Refletem experiências individuais.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
