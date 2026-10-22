@@ -14,27 +14,34 @@ const slides = [
 const INTERVAL = 6500;
 
 export function HeroBackdrop() {
-  const [i, setI] = useState(0);
+  // t conta as trocas; a foto atual é t % total. Só monta o que já apareceu e a próxima,
+  // para não baixar as 5 fotos de uma vez.
+  const [t, setT] = useState(0);
+  const i = t % slides.length;
 
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % slides.length), INTERVAL);
-    return () => clearInterval(t);
+    const id = setInterval(() => setT((v) => v + 1), INTERVAL);
+    return () => clearInterval(id);
   }, []);
 
   return (
     <div className="hero-photo absolute inset-x-0 top-0 h-[470px] lg:inset-x-auto lg:right-0 lg:h-full lg:w-[62%]">
-      {slides.map((s, n) => (
-        <Image
-          key={s.src}
-          src={s.src}
-          alt={n === i ? s.alt : ""}
-          fill
-          priority={n === 0}
-          sizes="(min-width:1024px) 62vw, 100vw"
-          className="object-cover transition-opacity duration-[1600ms] ease-in-out"
-          style={{ objectPosition: s.pos, opacity: n === i ? 1 : 0 }}
-        />
-      ))}
+      {slides.map((s, n) => {
+        const mounted = t + 1 >= slides.length || n <= t + 1;
+        if (!mounted) return null;
+        return (
+          <Image
+            key={s.src}
+            src={s.src}
+            alt={n === i ? s.alt : ""}
+            fill
+            priority={n === 0}
+            sizes="(min-width:1024px) 62vw, 100vw"
+            className="object-cover transition-opacity duration-[1600ms] ease-in-out"
+            style={{ objectPosition: s.pos, opacity: n === i ? 1 : 0 }}
+          />
+        );
+      })}
     </div>
   );
 }

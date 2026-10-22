@@ -36,7 +36,7 @@ export function Header() {
       <div className="sticky top-0 z-40 h-0 px-3 sm:px-5">
         <div className="relative top-4 mx-auto max-w-6xl">
           <header className="flex h-[68px] items-center justify-between gap-4 rounded-full border border-paper/20 bg-cocoa/90 pl-5 pr-2.5 text-paper shadow-[0_18px_40px_-18px_rgba(40,30,22,0.55)] backdrop-blur-xl backdrop-saturate-150">
-            <a href="#topo" className="flex items-center gap-3" aria-label="Mente, Corpo e Hormônios: início">
+            <a href="#topo" className="flex items-center gap-3">
               <Image src="/img/logo-dc-dourada.webp" alt="" width={64} height={39} priority className="h-auto w-[62px]" />
               <span className="leading-none">
                 <span className="block font-serif text-[0.92rem] leading-[1.15] tracking-[0.1em] uppercase">
