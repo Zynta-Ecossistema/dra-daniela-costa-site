@@ -122,9 +122,8 @@ export const VIDEOS: PatientVideo[] = [];
 
 // Fotos dos cards "Quais problemas ajudamos a cuidar?". Sem foto, o card mostra a logo como reserva.
 export const PROBLEM_PHOTOS: Record<string, { src: string; pos: string } | undefined> = {
-  "Mulher 40+": { src: "/img/dra-jardim-renda.webp", pos: "50% 22%" },
+  "Mulher 40+": { src: "/img/dra-jardim-rosa.webp", pos: "50% 22%" },
   "Saúde emocional & sono": { src: "/img/dra-cafe.webp", pos: "50% 22%" },
-  "Dor, ossos & movimento": { src: "/img/dra-jardim-rosa.webp", pos: "50% 30%" },
   "Doenças crônicas": { src: "/img/dra-escritorio.webp", pos: "50% 38%" },
 };
 
