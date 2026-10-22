@@ -19,6 +19,7 @@ const UF: Record<string, string> = { Amazonas: "AM", "Mato Grosso": "MT", "São 
 
 export function Experience() {
   const [open, setOpen] = useState<string | null>(null);
+  const [hover, setHover] = useState<string | null>(null);
   const toggle = (state: string) => setOpen((v) => (v === state ? null : state));
 
   return (
@@ -47,6 +48,8 @@ export function Experience() {
                       aria-expanded={isOpen}
                       aria-controls={id}
                       onClick={() => toggle(g.state)}
+                      onPointerEnter={() => setHover(g.state)}
+                      onPointerLeave={() => setHover((v) => (v === g.state ? null : v))}
                       className="flex w-full items-center justify-between gap-4 py-5 text-left"
                     >
                       <span className={`font-serif text-[1.7rem] uppercase tracking-wide ${g.tone}`}>{g.state}</span>
@@ -94,29 +97,60 @@ export function Experience() {
               sizes="(min-width:1024px) 520px, 92vw"
               className="h-auto w-full drop-shadow-[0_24px_30px_rgba(67,55,46,0.18)]"
             />
+            {/* camada visual: só anima (transform e opacidade, sem filtro animado), nunca recebe o mouse */}
+            {EXPERIENCE.map((g) => {
+              const uf = UF[g.state];
+              const l = MAP_LAYERS[uf];
+              const isOpen = open === g.state;
+              const isHover = hover === g.state;
+              const scale = isOpen ? 1.1 : isHover ? 1.07 : 1;
+              const src = `/img/estado-${uf.toLowerCase()}.webp`;
+              return (
+                <div
+                  key={g.state}
+                  aria-hidden
+                  className="pointer-events-none absolute"
+                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%`, zIndex: isOpen ? 30 : isHover ? 20 : 10 }}
+                >
+                  <div
+                    className="relative h-full w-full will-change-transform transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+                    style={{ transform: `scale(${scale})` }}
+                  >
+                    <Image
+                      src={src}
+                      alt=""
+                      width={l.w}
+                      height={l.h}
+                      sizes="320px"
+                      className={`absolute inset-0 h-full w-full translate-y-[3%] brightness-0 blur-[10px] transition-opacity duration-[900ms] ease-out motion-reduce:transition-none ${
+                        isOpen ? "opacity-50" : isHover ? "opacity-35" : "opacity-0"
+                      }`}
+                    />
+                    <Image src={src} alt="" width={l.w} height={l.h} sizes="320px" className="relative h-full w-full select-none" draggable={false} />
+                  </div>
+                </div>
+              );
+            })}
+            {/* camada de clique: formas fixas (não escalam), então o mouse na divisa não fica oscilando */}
             {EXPERIENCE.map((g) => {
               const uf = UF[g.state];
               const l = MAP_LAYERS[uf];
               const isOpen = open === g.state;
               return (
-                <div
+                <button
                   key={g.state}
-                  className={`pointer-events-none absolute origin-center transition-[transform,filter] duration-500 ease-out hover:z-20 hover:scale-[1.07] hover:drop-shadow-[0_18px_22px_rgba(40,30,22,0.45)] ${
-                    isOpen ? "z-30 scale-[1.1] drop-shadow-[0_22px_26px_rgba(40,30,22,0.5)]" : "z-10"
-                  }`}
-                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%` }}
-                >
-                  <button
-                    type="button"
-                    onClick={() => toggle(g.state)}
-                    aria-label={`${g.state}: ${isOpen ? "recolher" : "ver"} áreas de atuação`}
-                    aria-pressed={isOpen}
-                    className="pointer-events-auto absolute inset-0 cursor-pointer outline-none focus-visible:drop-shadow-[0_0_0_#8c5e1a]"
-                    style={{ clipPath: l.clip }}
-                  >
-                    <Image src={`/img/estado-${uf.toLowerCase()}.webp`} alt="" width={l.w} height={l.h} sizes="320px" className="h-full w-full select-none" draggable={false} />
-                  </button>
-                </div>
+                  type="button"
+                  onClick={() => toggle(g.state)}
+                  onPointerEnter={() => setHover(g.state)}
+                  onPointerLeave={() => setHover((v) => (v === g.state ? null : v))}
+                  onPointerCancel={() => setHover(null)}
+                  onFocus={() => setHover(g.state)}
+                  onBlur={() => setHover((v) => (v === g.state ? null : v))}
+                  aria-label={`${g.state}: ${isOpen ? "recolher" : "ver"} áreas de atuação`}
+                  aria-pressed={isOpen}
+                  className="absolute z-40 cursor-pointer bg-transparent outline-none"
+                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%`, clipPath: l.clip }}
+                />
               );
             })}
           </div>
