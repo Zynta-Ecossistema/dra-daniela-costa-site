@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Reveal } from "./Reveal";
-import { PLANS, waLink, type Modality } from "@/lib/site";
+import { PLANS, waLink, MSG, type Modality } from "@/lib/site";
 
 const compare = [
   ["Medicina e nutrição", "Consultas por vídeo", "Consultas em consultório"],
@@ -16,7 +16,7 @@ export function Plans() {
   const [mod, setMod] = useState<Modality>("tele");
   const plan = PLANS[mod];
 
-  const msg = `Olá! Quero conversar sobre o acompanhamento por ${mod === "tele" ? "telemedicina" : "consultório em Guarulhos"}.`;
+  const msg = MSG.planos;
 
   const pill = (active: boolean) =>
     `flex flex-col items-start justify-start text-left border p-4 sm:p-5 transition-all rounded-sm ${

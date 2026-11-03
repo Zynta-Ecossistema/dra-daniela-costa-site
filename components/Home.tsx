@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
-import { waLink } from "@/lib/site";
+import { waLink, MSG } from "@/lib/site";
 
 export function Domiciliar() {
   return (
@@ -39,7 +39,7 @@ export function Domiciliar() {
             disponibilidade são confirmados antes do agendamento.
           </p>
           <a
-            href={waLink("Olá! Gostaria de consultar valores e disponibilidade para uma consulta domiciliar.")}
+            href={waLink(MSG.domiciliar)}
             className="mt-6 flex items-center justify-between bg-cocoa text-paper px-5 py-4 rounded-sm hover:bg-cocoa-2 transition-colors text-[0.95rem]"
           >
             Consultar valores da visita <span aria-hidden>↗</span>
@@ -66,11 +66,11 @@ export function Locations() {
       <div className="mx-auto max-w-6xl px-5 py-16 lg:py-28">
         <Reveal>
           <h2 className="h-display text-[clamp(2.1rem,4.6vw,3.4rem)]">
-            Presencial em Guarulhos, <em>online de onde você estiver.</em>
+            Presencial em Guarulhos e Alphaville, <em>online de onde você estiver.</em>
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-2 gap-6">
+        <div className="mt-12 grid lg:grid-cols-3 gap-6">
           <Reveal className="bg-card border border-line">
             <div className="grid grid-cols-2 grid-rows-2 gap-px bg-line aspect-[4/3]">
               {photos.map(([src, alt]) => (
@@ -128,6 +128,33 @@ export function Locations() {
                   Consultas por vídeo, de onde você estiver, com a mesma equipe e o mesmo plano de cuidado.
                 </p>
               </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={240} className="bg-card border border-line flex flex-col">
+            <div className="grid aspect-[4/3] place-items-center bg-blush">
+              <div className="text-center">
+                <p className="font-serif text-[2.6rem] leading-none text-cocoa">Alphaville</p>
+                <p className="mt-2 text-[0.72rem] tracking-[0.24em] text-cocoa/70">BARUERI, SP</p>
+              </div>
+            </div>
+            <div className="p-7 flex-1">
+              <h3 className="font-serif text-[1.8rem]">Alphaville, Barueri</h3>
+              <p className="text-ink-soft mt-2 leading-relaxed">
+                Alameda Grajaú, 98, 18º andar
+                <br />
+                Alphaville Industrial, Barueri, SP
+                <br />
+                CEP 06454-050
+              </p>
+              <a
+                className="inline-block mt-2 py-2 border-b border-ink/40 text-[0.9rem] hover:border-ink"
+                href="https://share.google/519hn5GymrrNwVDoD"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver no mapa ↗
+              </a>
             </div>
           </Reveal>
         </div>

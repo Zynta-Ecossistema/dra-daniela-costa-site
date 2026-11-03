@@ -49,7 +49,9 @@ function VideoCard({ v }: { v: PatientVideo }) {
 export function Reviews() {
   const n = REVIEWS.length;
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [hoverPaused, setPaused] = useState(false);
+  const [stopped, setStopped] = useState(false);
+  const paused = hoverPaused || stopped;
 
   // o card em destaque troca sozinho; a lista ao lado rola sem parar (CSS)
   useEffect(() => {
@@ -73,8 +75,19 @@ export function Reviews() {
           </p>
         </Reveal>
 
+        <div className="mt-8 flex justify-end">
+          <button
+            type="button"
+            onClick={() => setStopped((v) => !v)}
+            aria-pressed={stopped}
+            className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[0.82rem] text-ink-soft hover:border-ink/40 hover:text-ink transition-colors"
+          >
+            <span aria-hidden>{stopped ? "▶" : "❚❚"}</span>
+            {stopped ? "Retomar movimento" : "Pausar movimento"}
+          </button>
+        </div>
         <div
-          className="mt-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-5"
+          className={`mt-3 grid lg:grid-cols-[1.15fr_0.85fr] gap-5 ${stopped ? "review-stopped" : ""}`}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onFocus={() => setPaused(true)}

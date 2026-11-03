@@ -26,7 +26,7 @@ export function Doctor() {
             <p className="text-[0.78rem] tracking-wide mt-1 text-paper/85">
               Médica · CRM-SP 272263
               <br />
-              Coordenadora da Medicina Integrada Mente, Corpo e Hormônios
+              Coordenadora do programa Mente, Corpo e Hormônios
             </p>
           </div>
         </div>
@@ -40,17 +40,17 @@ export function Doctor() {
         </Reveal>
         <Reveal delay={120} className="mt-7 space-y-5 text-[1.04rem] leading-[1.75] text-ink-soft max-w-xl">
           <p>
-            Amazonense, médica e com formação também em Enfermagem, a Dra. Daniela Lima da Costa construiu sua trajetória
-            em diferentes realidades da saúde: atenção à família, saúde indígena, urgência e emergência, telemedicina,
-            preceptoria e palestras.
+            Sou a Dra. Daniela Costa, médica e bacharel em Enfermagem, com 20 anos na saúde e 10 anos de medicina. Tenho
+            experiência em clínica médica, Saúde da Família, urgência e emergência, hospitais e telemedicina.
           </p>
           <p>
-            Hoje, atua presencialmente em Guarulhos e por telemedicina. À frente do Mente, Corpo e Hormônios, coordena um
-            cuidado que combina avaliação clínica, alimentação, saúde emocional e movimento.
+            Sou mestre em Administração e Gestão da Saúde Pública, com pós-graduação em Saúde e Qualidade de Vida, Saúde
+            da Família e Comunidade, Saúde e Medicina de Emergência. Sigo ampliando minha formação em Endocrinologia e
+            Saúde Integrativa.
           </p>
           <p>
-            Seu compromisso é ouvir, compreender o contexto de cada pessoa e construir um acompanhamento individualizado,
-            com atenção à saúde, à autonomia e à qualidade de vida.
+            Na consulta, você encontra escuta atenta, avaliação individualizada e um plano de cuidado que considera sua
+            história, suas necessidades e sua rotina.
           </p>
         </Reveal>
         <Reveal delay={200} className="mt-8 grid grid-cols-3 gap-4 max-w-xl border-t border-line pt-6">

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { waLink, SOBRE_PLANOS } from "@/lib/site";
+import { waLink, MSG } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -31,8 +31,8 @@ export function Hero() {
             className="mt-6 max-w-xl text-[1.06rem] leading-relaxed text-ink-soft rise"
             style={{ ["--d" as string]: "260ms" }}
           >
-            Você tem uma história, uma rotina e suas próprias necessidades. Nosso cuidado começa pela escuta e segue com
-            você, conectando mente, corpo e hormônios.
+            Avaliação e acompanhamento da saúde da mulher 40+, com atenção integrada à mente, ao corpo e às mudanças
+            hormonais. Cuidado individualizado, com foco em bem-estar e qualidade de vida.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rise" style={{ ["--d" as string]: "380ms" }}>
             <a
@@ -48,12 +48,6 @@ export function Hero() {
               Conheça o programa ↓
             </a>
           </div>
-          <p
-            className="mt-8 flex items-center gap-3 text-[0.85rem] text-ink-soft rise"
-            style={{ ["--d" as string]: "480ms" }}
-          >
-            Cuidado para mulheres, homens e idosos. A partir de 18 anos.
-          </p>
         </div>
 
       </div>
@@ -67,7 +61,7 @@ export function Hero() {
           ))}
         </ul>
       </div>
-      <a href={waLink(SOBRE_PLANOS)} className="sr-only">
+      <a href={waLink(MSG.inicio)} className="sr-only">
         Falar pelo WhatsApp
       </a>
     </section>

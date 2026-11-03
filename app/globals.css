@@ -131,6 +131,7 @@ body {
   to { transform: translateY(calc(-50% - 6px)); }
 }
 .review-track { animation: review-scroll 45s linear infinite; }
+.review-stopped .review-track,
 .review-viewport:hover .review-track,
 .review-viewport:focus-within .review-track { animation-play-state: paused; }
 .review-in { animation: review-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }

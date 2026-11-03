@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { waLink, SOBRE_PLANOS } from "@/lib/site";
+import { waLink, MSG } from "@/lib/site";
 
 const links = [
   ["#dra-daniela", "Dra. Daniela"],
@@ -44,13 +44,13 @@ export function Header() {
                   <br />
                   e Hormônios
                 </span>
-                <span className="block mt-1.5 text-[0.56rem] tracking-[0.24em] text-paper/70">MEDICINA INTEGRADA</span>
+                <span className="block mt-1.5 whitespace-nowrap text-[0.52rem] tracking-[0.16em] text-paper/70">MÉDICA · CRM-SP 272263</span>
               </span>
             </a>
 
-            <nav className="hidden xl:flex items-center gap-6 text-[0.86rem]" aria-label="Seções">
+            <nav className="hidden xl:flex items-center gap-5 text-[0.84rem]" aria-label="Seções">
               {desktopLinks.map(([h, l]) => (
-                <a key={h} href={h} className="text-paper/85 hover:text-paper transition-colors">
+                <a key={h} href={h} className="whitespace-nowrap text-paper/85 hover:text-paper transition-colors">
                   {l}
                 </a>
               ))}
@@ -58,7 +58,7 @@ export function Header() {
 
             <a
               href="#contato"
-              className="hidden xl:inline-flex items-center gap-2.5 rounded-full bg-blush px-6 py-3.5 text-[0.88rem] font-medium text-cocoa hover:bg-paper transition-colors"
+              className="hidden xl:inline-flex shrink-0 whitespace-nowrap items-center gap-2.5 rounded-full bg-blush px-6 py-3.5 text-[0.88rem] font-medium text-cocoa hover:bg-paper transition-colors"
             >
               Solicitar consulta <span aria-hidden>→</span>
             </a>
@@ -103,7 +103,7 @@ export function Header() {
               >
                 Solicitar consulta
               </a>
-              <a href={waLink(SOBRE_PLANOS)} className="mt-3 block rounded-full bg-blush py-3.5 text-center text-cocoa font-medium">
+              <a href={waLink(MSG.inicio)} className="mt-3 block rounded-full bg-blush py-3.5 text-center text-cocoa font-medium">
                 Conversar pelo WhatsApp
               </a>
             </div>

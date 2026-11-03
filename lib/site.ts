@@ -11,6 +11,15 @@ export function waTo(number: string, text: string) {
 
 export const SOBRE_PLANOS = "Olá! Gostaria de conversar sobre o acompanhamento Mente, Corpo e Hormônios.";
 
+// Cada botão abre a conversa com uma mensagem própria. Assim a equipe sabe de qual parte do site o paciente veio.
+export const MSG = {
+  inicio: "Olá! Vim pelo site e quero agendar minha primeira consulta com a Dra. Daniela.",
+  planos: "Olá! Vi os planos no site e quero saber os horários da primeira consulta.",
+  flutuante: "Olá! Vim pelo site e gostaria de agendar uma consulta.",
+  domiciliar: "Olá! Gostaria de saber sobre a consulta domiciliar.",
+  final: "Olá! Quero dar o primeiro passo e agendar minha consulta.",
+} as const;
+
 export type Modality = "tele" | "pres";
 
 type Plan = {
@@ -165,7 +174,7 @@ export const EXPERIENCE = [
   {
     state: "São Paulo",
     tone: "text-lilac-deep",
-    items: ["Ambulatório Ocupacional", "Telemedicina", "Medicina Integrada Mente, Corpo e Hormônios", "Unidade Hospital", "Urgência e Emergência"],
+    items: ["Ambulatório Ocupacional", "Telemedicina", "Programa Mente, Corpo e Hormônios", "Unidade Hospital", "Urgência e Emergência"],
   },
 ];
 

@@ -17,9 +17,9 @@ const sans = Instrument_Sans({
   display: "swap",
 });
 
-const title = "Dra. Daniela Costa | Medicina Integrada em Guarulhos e telemedicina";
+const title = "Dra. Daniela Costa | Médica em Guarulhos e telemedicina";
 const description =
-  "Acompanhamento multiprofissional em mente, corpo e hormônios com a Dra. Daniela Lima da Costa (CRM-SP 272263). Atendimento presencial em Guarulhos, telemedicina e consulta domiciliar.";
+  "Acompanhamento multiprofissional em mente, corpo e hormônios com a Dra. Daniela Lima da Costa (CRM-SP 272263). Atendimento presencial em Guarulhos e Alphaville, telemedicina e consulta domiciliar.";
 
 const SITE = "https://www.dradanielacosta.com.br";
 
@@ -62,6 +62,14 @@ const physician = {
       streetAddress: "R. Dr. Ramos de Azevedo, 159",
       addressLocality: "Guarulhos",
       addressRegion: "SP",
+      addressCountry: "BR",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Alameda Grajaú, 98, 18º andar, Alphaville Industrial",
+      addressLocality: "Barueri",
+      addressRegion: "SP",
+      postalCode: "06454-050",
       addressCountry: "BR",
     },
   ],

@@ -8,7 +8,7 @@ export function Footer() {
           <Image src="/img/logo-dc-branca.webp" alt="Dra. Daniela Costa" width={96} height={58} className="h-auto w-[96px]" />
           <p className="font-serif leading-tight">
             Mente, Corpo e Hormônios
-            <span className="block text-[0.62rem] tracking-[0.22em] text-paper/70 font-sans mt-1">MEDICINA INTEGRADA</span>
+            <span className="block text-[0.62rem] tracking-[0.22em] text-paper/70 font-sans mt-1">MÉDICA · CRM-SP 272263</span>
           </p>
         </div>
         <p className="text-[0.78rem] text-paper/70 leading-relaxed max-w-md">
