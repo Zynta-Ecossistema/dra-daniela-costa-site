@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { waLink, SOBRE_PLANOS } from "@/lib/site";
+import { waLink, MSG } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Página não encontrada | Dra. Daniela Costa" };
 
@@ -22,7 +22,7 @@ export default function NotFound() {
             Voltar ao início
           </Link>
           <a
-            href={waLink(SOBRE_PLANOS)}
+            href={waLink(MSG.M1)}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-cocoa px-7 py-4 text-[0.95rem] text-cocoa transition-colors hover:bg-cocoa hover:text-paper"

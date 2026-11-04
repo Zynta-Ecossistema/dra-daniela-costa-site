@@ -149,16 +149,14 @@ body {
   html { scroll-behavior: auto; }
 }
 
-/* foto do topo: esmaece na base (mobile) e na borda esquerda (desktop) */
+/* foto do topo: esmaece na borda esquerda (desktop) e no alto (celular) */
 .hero-photo {
-  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 38%);
 }
-@media (min-width: 1024px) {
-  .hero-photo {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 38%);
-  }
+.hero-photo-m {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
 }
 
 .grain::after {
@@ -175,3 +173,28 @@ body {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
+
+/* botões: um único estilo primário (preenchido, totalmente arredondado, 48 px de altura mínima) e um secundário só com contorno */
+.btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-primary { background: var(--cocoa); color: var(--paper); }
+.btn-primary:hover { background: var(--cocoa-2); }
+.btn-ghost { border: 1px solid color-mix(in srgb, var(--cocoa) 45%, transparent); color: var(--cocoa); }
+.btn-ghost:hover { background: var(--cocoa); color: var(--paper); }
+.on-dark .btn-primary { background: var(--blush); color: var(--cocoa); }
+.on-dark .btn-primary:hover { background: var(--paper); }
+
+/* FAQ nativo: o marcador padrão sai e o "+" gira ao abrir */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] > summary .faq-plus { transform: rotate(45deg); }

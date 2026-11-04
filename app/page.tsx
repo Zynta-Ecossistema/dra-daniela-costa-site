@@ -1,14 +1,11 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Doctor } from "@/components/Doctor";
-import { Program } from "@/components/Program";
-import { Journey } from "@/components/Journey";
-import { Domiciliar, Locations } from "@/components/Home";
-import { Plans } from "@/components/Plans";
-import { Partners } from "@/components/Partners";
-import { Experience } from "@/components/Experience";
-import { Ensino } from "@/components/Ensino";
+import { Reconhece } from "@/components/Reconhece";
+import { Como } from "@/components/Como";
+import { Consulta } from "@/components/Consulta";
 import { Reviews } from "@/components/Reviews";
+import { Sobre } from "@/components/Sobre";
+import { Onde } from "@/components/Onde";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -20,16 +17,12 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <Doctor />
-        <Experience />
-        <Program />
+        <Reconhece />
+        <Como />
+        <Consulta />
         <Reviews />
-        <Journey />
-        <Domiciliar />
-        <Plans />
-        <Ensino />
-        <Partners />
-        <Locations />
+        <Sobre />
+        <Onde />
         <Faq />
         <Contact />
       </main>

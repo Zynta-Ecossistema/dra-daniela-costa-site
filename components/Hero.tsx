@@ -1,69 +1,66 @@
 import Image from "next/image";
-import { waLink, MSG } from "@/lib/site";
+import { WaButton } from "./WaButton";
+import { MSG } from "@/lib/site";
+
+const proofs = ["Presencial ou por vídeo", "Retorno em até 15 dias incluso"];
 
 export function Hero() {
   return (
     <section id="topo" className="relative overflow-hidden">
-      <div className="hero-photo absolute inset-x-0 top-0 h-[470px] lg:inset-x-auto lg:right-0 lg:h-full lg:w-[62%]">
+      {/* desktop: foto à direita, esmaecendo para o texto */}
+      <div className="hero-photo absolute inset-y-0 right-0 hidden w-[58%] lg:block">
         <Image
           src="/img/dra-banner-v2.webp"
-          alt="Dra. Daniela Costa sorrindo, de terno branco, em um consultório claro"
+          alt="Dra. Daniela Costa, médica, em consultório em Guarulhos"
           fill
           priority
-          sizes="(min-width:1024px) 62vw, 100vw"
+          sizes="58vw"
           className="object-cover"
           style={{ objectPosition: "50% 14%" }}
         />
       </div>
-      <div className="relative z-10 mx-auto max-w-6xl px-5 pt-[400px] pb-14 lg:pt-24 lg:pb-28 lg:min-h-[640px] flex items-center">
-        <div className="lg:max-w-[52%]">
+
+      <div className="relative z-10 mx-auto flex max-w-6xl items-center px-5 pb-8 pt-[104px] lg:min-h-[660px] lg:pb-24 lg:pt-28">
+        <div className="lg:max-w-[50%]">
+          <p className="eyebrow text-gold rise">Programa Mente, Corpo e Hormônios · Guarulhos e online</p>
           <h1
-            className="h-display mt-2 lg:mt-6 text-[clamp(2.6rem,6.6vw,4.4rem)] rise"
-            style={{ ["--d" as string]: "120ms" }}
+            className="h-display rise mt-4 text-[clamp(2.15rem,5.6vw,3.9rem)]"
+            style={{ ["--d" as string]: "100ms" }}
           >
-            Sua saúde merece
-            <br />
-            um olhar
-            <br />
-            <em>por inteiro.</em>
+            Cansaço, peso que não sai e sono ruim <em>não precisam ser o seu normal.</em>
           </h1>
-          <p
-            className="mt-6 max-w-xl text-[1.06rem] leading-relaxed text-ink-soft rise"
-            style={{ ["--d" as string]: "260ms" }}
-          >
-            Avaliação e acompanhamento da saúde da mulher 40+, com atenção integrada à mente, ao corpo e às mudanças
-            hormonais. Cuidado individualizado, com foco em bem-estar e qualidade de vida.
+          <p className="rise mt-5 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft" style={{ ["--d" as string]: "200ms" }}>
+            Uma primeira consulta sem pressa para entender sua história, exames bem indicados e uma equipe que acompanha
+            você toda a semana, não só no dia da consulta.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rise" style={{ ["--d" as string]: "380ms" }}>
-            <a
-              href="#planos"
-              className="group inline-flex items-center gap-3 bg-cocoa text-paper px-6 py-4 rounded-sm text-[0.95rem] hover:bg-cocoa-2 transition-colors"
-            >
-              Encontre seu acompanhamento
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-            <a href="#programa" className="text-[0.95rem] border-b border-ink/40 pb-1 hover:border-ink transition-colors">
-              Conheça o programa ↓
+          <div className="rise mt-7 flex flex-col gap-3 sm:flex-row sm:items-center" style={{ ["--d" as string]: "300ms" }}>
+            <WaButton msg={MSG.M1}>Agendar minha primeira consulta</WaButton>
+            <a href="#como" className="btn btn-ghost">
+              Ver como funciona
             </a>
           </div>
+          <ul className="rise mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[0.85rem] text-ink-soft" style={{ ["--d" as string]: "400ms" }}>
+            {proofs.map((p) => (
+              <li key={p} className="flex items-center gap-2">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
+                {p}
+              </li>
+            ))}
+          </ul>
         </div>
-
       </div>
 
-      <div className="border-y border-line bg-paper-2">
-        <ul className="mx-auto max-w-6xl px-5 py-5 grid grid-cols-3 gap-4 text-[0.82rem] sm:text-[0.9rem] text-ink-soft">
-          {["Escuta que acolhe", "Metas possíveis", "Cuidado que acompanha"].map((t) => (
-            <li key={t} className="flex items-center justify-center sm:justify-start gap-3 text-center sm:text-left">
-              {t}
-            </li>
-          ))}
-        </ul>
+      {/* celular: a foto vem depois do botão, para o agendamento aparecer sem rolar */}
+      <div className="hero-photo-m relative mx-auto h-[400px] w-full max-w-xl lg:hidden">
+        <Image
+          src="/img/dra-banner-v2.webp"
+          alt="Dra. Daniela Costa, médica, em consultório em Guarulhos"
+          fill
+          sizes="(max-width:576px) 100vw, 576px"
+          className="object-cover"
+          style={{ objectPosition: "50% 14%" }}
+        />
       </div>
-      <a href={waLink(MSG.inicio)} className="sr-only">
-        Falar pelo WhatsApp
-      </a>
     </section>
   );
 }

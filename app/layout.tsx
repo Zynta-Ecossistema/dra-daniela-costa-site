@@ -17,9 +17,9 @@ const sans = Instrument_Sans({
   display: "swap",
 });
 
-const title = "Dra. Daniela Costa | Médica em Guarulhos e telemedicina";
+const title = "Dra. Daniela Costa · Médica em Guarulhos e Telemedicina";
 const description =
-  "Acompanhamento multiprofissional em mente, corpo e hormônios com a Dra. Daniela Lima da Costa (CRM-SP 272263). Atendimento presencial em Guarulhos e Alphaville, telemedicina e consulta domiciliar.";
+  "Primeira consulta sem pressa, retorno incluso e acompanhamento semanal com equipe. Presencial em Guarulhos ou por vídeo. Agende pelo WhatsApp.";
 
 const SITE = "https://www.dradanielacosta.com.br";
 
