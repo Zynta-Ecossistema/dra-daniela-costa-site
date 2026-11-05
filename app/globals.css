@@ -155,8 +155,8 @@ body {
   mask-image: linear-gradient(to right, transparent 0%, #000 38%);
 }
 .hero-photo-m {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 45%, transparent 100%);
 }
 
 .grain::after {

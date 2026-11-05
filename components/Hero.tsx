@@ -21,7 +21,7 @@ export function Hero() {
       </div>
 
       {/* celular: a foto fica atrás do texto, esmaecendo para baixo */}
-      <div className="hero-photo-m absolute -right-[16%] top-0 h-[480px] w-[116%] lg:hidden">
+      <div className="hero-photo-m absolute -right-[16%] top-[40px] h-[480px] w-[116%] lg:hidden">
         <Image
           src="/img/dra-banner-v3.webp"
           alt="Dra. Daniela Costa, médica, em consultório"
