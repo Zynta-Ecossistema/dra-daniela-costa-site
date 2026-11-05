@@ -38,7 +38,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex max-w-6xl items-center px-5 pb-8 pt-[92px] lg:min-h-[660px] lg:pb-24 lg:pt-28">
         <div className="lg:max-w-[50%]">
-          <p className="eyebrow text-gold rise">Programa Mente, Corpo e Hormônios · Alphaville e online</p>
+          <p className="eyebrow text-gold rise">Medicina Integrada Mente, Corpo e Hormônios · Alphaville e online</p>
           <h1
             className="h-display rise mt-[190px] text-[clamp(2.15rem,5.6vw,3.9rem)] lg:mt-4"
             style={{ ["--d" as string]: "100ms" }}
