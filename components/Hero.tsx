@@ -10,31 +10,31 @@ export function Hero() {
       {/* desktop: foto à direita, esmaecendo para o texto */}
       <div className="hero-photo absolute inset-y-0 right-0 hidden w-[58%] lg:block">
         <Image
-          src="/img/dra-banner-v2.webp"
+          src="/img/dra-banner-v3.webp"
           alt="Dra. Daniela Costa, médica, em consultório"
           fill
           priority
           sizes="58vw"
           className="object-cover"
-          style={{ objectPosition: "50% 14%" }}
+          style={{ objectPosition: "50% 30%" }}
         />
       </div>
 
       {/* celular: a foto fica atrás do texto, esmaecendo para baixo */}
-      <div className="hero-photo-m absolute -right-[22%] top-0 h-[600px] w-[122%] lg:hidden">
+      <div className="hero-photo-m absolute -right-[16%] top-0 h-[480px] w-[116%] lg:hidden">
         <Image
-          src="/img/dra-banner-v2.webp"
+          src="/img/dra-banner-v3.webp"
           alt="Dra. Daniela Costa, médica, em consultório"
           fill
           priority
           sizes="(max-width:1023px) 100vw, 1px"
           className="object-cover"
-          style={{ objectPosition: "72% 4%" }}
+          style={{ objectPosition: "66% 10%" }}
         />
       </div>
 
       {/* véu claro sobre a foto para o texto ficar legível */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-paper/0 via-paper/60 to-paper lg:hidden" />
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[560px] bg-gradient-to-b from-paper/0 via-paper/60 to-paper lg:hidden" />
 
       <div className="relative z-10 mx-auto flex max-w-6xl items-center px-5 pb-8 pt-[92px] lg:min-h-[660px] lg:pb-24 lg:pt-28">
         <div className="lg:max-w-[50%]">
