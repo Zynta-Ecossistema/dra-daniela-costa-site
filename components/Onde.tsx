@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
-import { CLINIC } from "@/lib/site";
+import { WaButton } from "./WaButton";
+import { CLINIC, MSG } from "@/lib/site";
 
 export function Onde() {
   return (
@@ -33,6 +34,9 @@ export function Onde() {
               className="block h-[260px] w-full border-0 sm:h-[320px]"
             />
           </div>
+          <WaButton msg={MSG.M7} className="mt-5 w-full sm:w-auto">
+            Agendar presencial
+          </WaButton>
         </Reveal>
 
         <Reveal delay={100} className="self-start rounded-2xl border border-line bg-card p-6 sm:p-7">
@@ -41,6 +45,9 @@ export function Onde() {
             Consultas on-line conforme a disponibilidade e a adequação de cada caso. Quando necessário, a médica orienta
             uma avaliação presencial.
           </p>
+          <WaButton msg={MSG.M8} className="mt-5 w-full">
+            Agendar por vídeo
+          </WaButton>
         </Reveal>
       </div>
     </section>

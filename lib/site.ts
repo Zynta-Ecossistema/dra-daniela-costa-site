@@ -11,6 +11,8 @@ export const MSG = {
   M2: "Olá! Quero agendar uma consulta.", // você se reconhece, quando nada foi marcado
   M4: "Olá! Vim pelo site e gostaria de agendar uma consulta.", // botão flutuante
   M6: "Olá! Quero dar o primeiro passo e agendar minha consulta.", // CTA final
+  M7: "Olá! Quero agendar uma consulta presencial na Livance Alphaville.", // onde atendo, presencial
+  M8: "Olá! Quero agendar uma consulta por vídeo.", // onde atendo, por vídeo
 } as const;
 
 // Mensagem do bloco "Você se reconhece": inclui só o que a visitante marcou, na hora do clique. Nada é guardado nem enviado a analytics.
@@ -22,26 +24,96 @@ export function msgSintomas(marcados: string[]) {
 export const DOCTORALIA_URL = "https://www.doctoralia.com.br/daniela-lima-da-costa/generalista/manaus";
 export const GOOGLE_URL = "https://share.google/Cpk7MjXd6eh02kwKj";
 
-export type Review = { source: "Doctoralia" | "Google"; name: string; text: string };
-
-// Avaliações públicas, transcritas como publicadas na plataforma (trechos curtos, sem alterar o sentido).
-export const FEATURED_REVIEW: Review = {
-  source: "Google",
-  name: "Dayanne Celestino de Oliveira",
-  text: "minha energia foi restaurada e agora posso dizer que estou no caminho da qualidade de vida.",
+export type Review = {
+  source: "Doctoralia" | "Google";
+  name: string;
+  verified?: "Consulta verificada" | "Opinião verificada";
+  text: string;
+  date?: string;
+  context?: string;
+  reply?: string;
 };
 
-export const SHORT_REVIEWS: Review[] = [
-  { source: "Doctoralia", name: "Laura Lima", text: "Excelente profissional, atenciosa, carismática." },
+// Avaliações públicas do Doctoralia e do Google, transcritas como publicadas (sem emojis). O Google não traz data exata, só "há X meses".
+export const REVIEWS: Review[] = [
+  {
+    source: "Doctoralia",
+    name: "Carlos Daniel",
+    verified: "Opinião verificada",
+    text: "Excelente profissional, bastante atenciosa e clara!",
+    date: "8 de setembro de 2024",
+    context: "Teleconsulta",
+    reply: "Bom Dia!! Carlos Daniel, agradeço pela confiança e carinho, estamos a disposição. Forte abraço!",
+  },
+  {
+    source: "Google",
+    name: "Dayanne Celestino de Oliveira",
+    text: "A Dra Daniela juntamente com a sua equipe são maravilhosos, atenciosos e o atendimento é de excelência. Desde que iniciei no programa vi que o atendimento era diferenciado, a Dra me fez várias perguntas, passou vários exames e me medicou conforme os sintomas que estava sentindo, graças a Deus melhorei e muito, minha energia foi restaurada e agora posso dizer que estou no caminho da qualidade de vida. O acompanhamento da Enfermeira Rebeca nas consultas faz toda diferença na nossa saúde, nas orientações e nas aplicações das medicações. Gratidão por todo apoio e acompanhamento Dra e a equipe.",
+  },
+  {
+    source: "Doctoralia",
+    name: "Laura Lima",
+    verified: "Consulta verificada",
+    text: "Excelente profissional, atenciosa, carismática, diagnóstico certeiro e tratamento eficaz. Gratidão!!! Dra. Daniela pela consulta maravilhosa.",
+    date: "27 de agosto de 2024",
+    context: "Teleconsulta",
+    reply: "Olá, Dona Laura, muito obrigada pelo carinho e confiança. Forte abraço!",
+  },
+  {
+    source: "Google",
+    name: "Alexandre Rodrigues",
+    text: "Uma excelente profissional quando fui atendido por ela foi muito atenciosa ,que Deus continue abençoando grandemente sua vida",
+  },
+  {
+    source: "Doctoralia",
+    name: "Benigno Picanço da Costa",
+    verified: "Consulta verificada",
+    text: "Atendimento atencioso e eficiente. Demonstrou verdadeiro interesse em diagnosticar e tratar a doença.",
+    date: "22 de agosto de 2024",
+    context: "Consulta generalista",
+    reply: "Olá, Sr. Benigno, agradeço pela confiança. Forte abraço!",
+  },
+  {
+    source: "Google",
+    name: "Daniela Santos",
+    text: "Uma excelente profissional super indico sempre preocupada com agente obrigada Dra Daniela Lima por ter cuidado tão bem de mim",
+  },
   {
     source: "Doctoralia",
     name: "Wilson Leal",
-    text: "Profissional presta atendimento humanizado ao paciente, isso faz a diferença positiva...",
+    verified: "Opinião verificada",
+    text: "Profissional presta atendimento humanizado ao paciente, isso faz a diferença positiva em relação a muitos outros profissionais da saúde.",
+    date: "1 de agosto de 2024",
+    context: "Telemedicina",
+    reply: "Olá, Sr. Wilson, agradeço pela confiança. Forte abraço!!",
+  },
+  {
+    source: "Google",
+    name: "Soraia Souza",
+    text: "Dr Daniela é uma excelente profissional. Atenciosa, tem empatia , passa segurança, e resolve os problemas de nossa saúde, vale a pena conhecer eu recomendo.",
+  },
+  {
+    source: "Doctoralia",
+    name: "Gyselia de Nazaré Franco Macena",
+    verified: "Consulta verificada",
+    text: "Excelente profissional, atenciosa e muito dedicada aos pacientes",
+    date: "31 de julho de 2024",
+    context: "Consulta",
+    reply: "Olá, Sra Gyselia, foi um grade prazer em atender. Estamos sempre prontos para receber com todo carinho. Forte abraço!!",
   },
   {
     source: "Google",
     name: "Karimme Martins",
-    text: "Atendimento excelente e prático principalmente para mim que moro no interior do estado.",
+    text: "Atendimento excelente e prático principalmente para mim que moro no interior do estado e muitas vezes não tem recursos para chegar até a capital.",
+  },
+  {
+    source: "Doctoralia",
+    name: "Afonso Martins",
+    verified: "Consulta verificada",
+    text: "Fui muito bem atendido pela dra Daniela Costa. A partir de agora, irei realizar o tratamento e aguardar os resultados.",
+    date: "31 de julho de 2024",
+    context: "Teleconsulta",
+    reply: "Olá, Afonso, seu feedback é muito importante para qualidade da assistência médica. Forte Abraço!!",
   },
 ];
 

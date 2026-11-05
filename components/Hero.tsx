@@ -20,11 +20,27 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-6xl items-center px-5 pb-5 pt-[92px] lg:min-h-[660px] lg:pb-24 lg:pt-28">
+      {/* celular: a foto fica atrás do texto, esmaecendo para baixo */}
+      <div className="hero-photo-m absolute -right-[22%] top-0 h-[600px] w-[122%] lg:hidden">
+        <Image
+          src="/img/dra-banner-v2.webp"
+          alt="Dra. Daniela Costa, médica, em consultório"
+          fill
+          priority
+          sizes="(max-width:1023px) 100vw, 1px"
+          className="object-cover"
+          style={{ objectPosition: "72% 4%" }}
+        />
+      </div>
+
+      {/* véu claro sobre a foto para o texto ficar legível */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-paper/0 via-paper/60 to-paper lg:hidden" />
+
+      <div className="relative z-10 mx-auto flex max-w-6xl items-center px-5 pb-8 pt-[92px] lg:min-h-[660px] lg:pb-24 lg:pt-28">
         <div className="lg:max-w-[50%]">
           <p className="eyebrow text-gold rise">Programa Mente, Corpo e Hormônios · Alphaville e online</p>
           <h1
-            className="h-display rise mt-4 text-[clamp(2.15rem,5.6vw,3.9rem)]"
+            className="h-display rise mt-[130px] text-[clamp(2.15rem,5.6vw,3.9rem)] lg:mt-4"
             style={{ ["--d" as string]: "100ms" }}
           >
             Seu cansaço, seu sono e suas mudanças de peso <em>merecem atenção.</em>
@@ -50,17 +66,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* celular: a foto vem depois do botão, para o agendamento aparecer sem rolar */}
-      <div className="hero-photo-m relative mx-auto h-[340px] w-full max-w-xl lg:hidden">
-        <Image
-          src="/img/dra-banner-v2.webp"
-          alt="Dra. Daniela Costa, médica, em consultório"
-          fill
-          sizes="(max-width:576px) 100vw, 576px"
-          className="object-cover"
-          style={{ objectPosition: "50% 14%" }}
-        />
-      </div>
     </section>
   );
 }
