@@ -29,15 +29,18 @@ export function Reconhece() {
             Você se reconhece em <em>alguma destas situações?</em>
           </h2>
           <p className="mt-3 text-ink-soft">Marque o que você sente. Se quiser, levamos isso para a conversa.</p>
-          <button
-            type="button"
-            className="btn btn-ghost mt-5 sm:hidden"
-            aria-expanded={aberto}
-            aria-controls={listaId}
-            onClick={() => setAberto((v) => !v)}
-          >
-            {aberto ? "Ocultar situações" : "Ver situações"}
-          </button>
+          {/* o wrapper some no desktop; .btn tem display próprio e vence sm:hidden se estiver no próprio botão */}
+          <div className="mt-5 sm:hidden">
+            <button
+              type="button"
+              className="btn btn-ghost"
+              aria-expanded={aberto}
+              aria-controls={listaId}
+              onClick={() => setAberto((v) => !v)}
+            >
+              {aberto ? "Ocultar situações" : "Ver situações"}
+            </button>
+          </div>
         </Reveal>
 
         <fieldset id={listaId} className={`mt-6 ${aberto ? "block" : "hidden"} sm:block`}>
