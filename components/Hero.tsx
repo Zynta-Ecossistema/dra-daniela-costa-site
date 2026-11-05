@@ -40,7 +40,7 @@ export function Hero() {
         <div className="lg:max-w-[50%]">
           <p className="eyebrow text-gold rise">Programa Mente, Corpo e Hormônios · Alphaville e online</p>
           <h1
-            className="h-display rise mt-[130px] text-[clamp(2.15rem,5.6vw,3.9rem)] lg:mt-4"
+            className="h-display rise mt-[190px] text-[clamp(2.15rem,5.6vw,3.9rem)] lg:mt-4"
             style={{ ["--d" as string]: "100ms" }}
           >
             Seu cansaço, seu sono e suas mudanças de peso <em>merecem atenção.</em>
