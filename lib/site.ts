@@ -80,3 +80,16 @@ export const FAQ = [
     "O atendimento presencial acontece na Livance Alphaville, Alameda Grajaú, 98, 18º andar, Alphaville Industrial, Barueri, SP, mediante agendamento prévio.",
   ],
 ] as const;
+
+// Áreas de atuação por estado, no mapa da trajetória (informativo, sem botões).
+export const EXPERIENCE = [
+  {
+    state: "Amazonas",
+    items: ["Saúde da Família", "Saúde Indígena", "Ambulatório", "Telemedicina", "Unidade Hospital", "Urgência e Emergência", "Preceptora e professora de MFC", "Palestrante"],
+  },
+  { state: "Mato Grosso", items: ["Saúde da Família", "Unidade Hospital"] },
+  {
+    state: "São Paulo",
+    items: ["Ambulatório Ocupacional", "Telemedicina", "Programa Mente, Corpo e Hormônios", "Unidade Hospital", "Urgência e Emergência"],
+  },
+] as const;

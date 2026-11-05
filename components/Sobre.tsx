@@ -1,12 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
-import { MAP_LAYERS } from "@/lib/map-layers";
-
-const ESTADOS = [
-  ["AM", "Amazonas"],
-  ["MT", "Mato Grosso"],
-  ["SP", "São Paulo"],
-] as const;
 
 export function Sobre() {
   return (
@@ -47,37 +40,6 @@ export function Sobre() {
         </div>
       </div>
 
-      {/* mapa ilustrativo da trajetória: só informa, sem botões */}
-      <div className="mx-auto max-w-6xl px-5 pb-14 lg:pb-24">
-        <Reveal className="mx-auto flex max-w-[460px] flex-col items-center">
-          <div className="relative w-full">
-            <Image
-              src="/img/mapa-brasil.webp"
-              alt="Mapa do Brasil com o Amazonas, o Mato Grosso e São Paulo em destaque, estados onde a Dra. Daniela atuou"
-              width={1100}
-              height={1089}
-              sizes="(min-width:1024px) 460px, 92vw"
-              className="h-auto w-full drop-shadow-[0_24px_30px_rgba(67,55,46,0.18)]"
-            />
-            {ESTADOS.map(([uf]) => {
-              const l = MAP_LAYERS[uf];
-              return (
-                <div
-                  key={uf}
-                  aria-hidden
-                  className="pointer-events-none absolute"
-                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%` }}
-                >
-                  <Image src={`/img/estado-${uf.toLowerCase()}.webp`} alt="" width={l.w} height={l.h} sizes="240px" className="h-full w-full" />
-                </div>
-              );
-            })}
-          </div>
-          <p className="mt-4 text-center text-[0.9rem] text-ink-soft">
-            Trajetória em {ESTADOS.map(([, n]) => n).join(", ").replace(/, ([^,]*)$/, " e $1")}.
-          </p>
-        </Reveal>
-      </div>
     </section>
   );
 }
