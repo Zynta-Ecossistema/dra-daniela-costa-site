@@ -8,17 +8,16 @@ export function waLink(text: string) {
 // Cada botão abre a conversa com uma mensagem própria (M1 a M6). Assim a equipe sabe de qual parte do site o paciente veio.
 export const MSG = {
   M1: "Olá! Vim pelo site e quero agendar minha primeira consulta com a Dra. Daniela.", // hero e cabeçalho
-  M2: "Olá! Me identifiquei com as queixas do site e quero agendar uma consulta.", // você se reconhece
-  M3: "Olá! Vi os valores no site e quero saber os horários da primeira consulta.", // primeira consulta e valores
+  M2: "Olá! Quero agendar uma consulta.", // você se reconhece, quando nada foi marcado
   M4: "Olá! Vim pelo site e gostaria de agendar uma consulta.", // botão flutuante
-  M5: "Olá! Gostaria de saber sobre a consulta domiciliar.", // onde atendo, em casa
   M6: "Olá! Quero dar o primeiro passo e agendar minha consulta.", // CTA final
 } as const;
 
-// Valor da primeira consulta. Enquanto SHOW_PRICE for false (ou o valor estiver vazio), o site mostra
-// "Valores e horários pelo WhatsApp". Para mostrar: SHOW_PRICE = true e PRICE_FIRST = "R$ 000,00".
-export const SHOW_PRICE = false;
-export const PRICE_FIRST = "";
+// Mensagem do bloco "Você se reconhece": inclui só o que a visitante marcou, na hora do clique. Nada é guardado nem enviado a analytics.
+export function msgSintomas(marcados: string[]) {
+  if (marcados.length === 0) return MSG.M2;
+  return `Olá! Quero agendar uma consulta. Tenho sentido: ${marcados.join("; ")}.`;
+}
 
 export const DOCTORALIA_URL = "https://www.doctoralia.com.br/daniela-lima-da-costa/generalista/manaus";
 export const GOOGLE_URL = "https://share.google/Cpk7MjXd6eh02kwKj";
@@ -52,31 +51,32 @@ export const TEAM = [
   ["Enf. Rebeca Uchôa", "Enfermagem · COREN-AM 297113"],
 ] as const;
 
-export const CLINICS = [
-  {
-    name: "Espaço Vida Acolhida",
-    address: "R. Silvestre Vasconcelos Calmon, 190, Vila Pedro Moreira, Guarulhos",
-    map: "https://www.google.com/maps/search/?api=1&query=R.+Silvestre+Vasconcelos+Calmon+190+Guarulhos+SP",
-    photo: { src: "/img/vida-sala1.webp", alt: "Sala de atendimento do Espaço Vida Acolhida, com poltronas e luz natural" },
-  },
-  {
-    name: "Clínica Equalize",
-    address: "R. Dr. Ramos de Azevedo, 159, Centro, Guarulhos",
-    map: "https://www.google.com/maps/search/?api=1&query=R.+Dr.+Ramos+de+Azevedo+159+Guarulhos+SP",
-    photo: { src: "/img/equalize-entrada.webp", alt: "Entrada do edifício da Clínica Equalize, em Guarulhos" },
-  },
-  {
-    name: "Alphaville, Barueri",
-    address: "Alameda Grajaú, 98, 18º andar, Alphaville Industrial, Barueri",
-    map: "https://share.google/519hn5GymrrNwVDoD",
-    photo: null,
-  },
-] as const;
+export const CLINIC = {
+  name: "Livance Alphaville",
+  address: "Alameda Grajaú, 98, 18º andar, Alphaville Industrial, Barueri, SP",
+  route: "https://www.google.com/maps/search/?api=1&query=Alameda+Gra%C3%BAj%C3%A1+98+Alphaville+Industrial+Barueri+SP",
+  embed: "https://www.google.com/maps?q=Alameda+Gra%C3%BAj%C3%A1+98+Alphaville+Industrial+Barueri+SP&output=embed",
+} as const;
 
 export const FAQ = [
-  ["Aceita convênio?", "Atendimento particular, com recibo para reembolso quando o plano oferece."],
-  ["A consulta por vídeo funciona para o meu caso?", "Na maioria dos casos, sim; sem exame físico nem bioimpedância."],
-  ["O que levar na primeira consulta?", "Exames recentes (até 12 meses), lista de remédios e suplementos, queixas anotadas."],
-  ["Preciso entrar no programa?", "Não. Primeira consulta e retorno bastam; o programa só é indicado se fizer sentido."],
-  ["Existe garantia de resultado?", "Não. Cada pessoa responde de um jeito; o compromisso é com metas possíveis e acompanhamento próximo."],
+  [
+    "Como funciona a primeira consulta?",
+    "Conversamos sobre sua história, rotina, sintomas e objetivos. A partir dessa avaliação, definimos juntas os próximos passos do cuidado, respeitando suas necessidades.",
+  ],
+  [
+    "Como funciona o programa de acompanhamento?",
+    "O programa Mente, Corpo e Hormônios oferece cuidado contínuo e individualizado, com avaliação médica, definição de objetivos e acompanhamento da evolução, conforme o plano escolhido.",
+  ],
+  [
+    "Como é o acompanhamento da menopausa?",
+    "Cada mulher tem sua história. São avaliados os sintomas, o histórico de saúde e os exames, quando indicados. As orientações e o acompanhamento são definidos de acordo com as necessidades de cada paciente.",
+  ],
+  [
+    "Existe atendimento por telemedicina?",
+    "Sim. As consultas on-line são realizadas conforme a disponibilidade e a adequação de cada caso. Quando necessário, a médica orienta uma avaliação presencial.",
+  ],
+  [
+    "Onde fica o consultório?",
+    "O atendimento presencial acontece na Livance Alphaville, Alameda Grajaú, 98, 18º andar, Alphaville Industrial, Barueri, SP, mediante agendamento prévio.",
+  ],
 ] as const;

@@ -2,7 +2,6 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Reconhece } from "@/components/Reconhece";
 import { Como } from "@/components/Como";
-import { Consulta } from "@/components/Consulta";
 import { Reviews } from "@/components/Reviews";
 import { Sobre } from "@/components/Sobre";
 import { Onde } from "@/components/Onde";
@@ -19,7 +18,6 @@ export default function Page() {
         <Hero />
         <Reconhece />
         <Como />
-        <Consulta />
         <Reviews />
         <Sobre />
         <Onde />

@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Dra. Daniela Costa | Mente, Corpo e Hormônios",
     short_name: "Dra. Daniela Costa",
-    description: "Médica em Guarulhos e Alphaville, telemedicina e consulta domiciliar.",
+    description: "Médica em Alphaville (Barueri) e telemedicina.",
     start_url: "/",
     display: "standalone",
     background_color: "#f7f1e7",

@@ -1,5 +1,12 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { MAP_LAYERS } from "@/lib/map-layers";
+
+const ESTADOS = [
+  ["AM", "Amazonas"],
+  ["MT", "Mato Grosso"],
+  ["SP", "São Paulo"],
+] as const;
 
 export function Sobre() {
   return (
@@ -20,32 +27,56 @@ export function Sobre() {
         <div>
           <Reveal>
             <h2 className="h-display text-[clamp(2rem,4.4vw,3.2rem)]">
-              20 anos cuidando de gente, <em>da floresta à cidade.</em>
+              Quem é a <em>Dra. Daniela Costa?</em>
             </h2>
           </Reveal>
           <Reveal delay={100} className="mt-6 max-w-xl space-y-4 text-[1.04rem] leading-[1.75] text-ink-soft">
             <p>
-              Amazonense, enfermeira antes de ser médica. Atuou em saúde da família, saúde indígena, urgência e telemedicina
-              no Amazonas, Mato Grosso e São Paulo. Foi preceptora e professora de Medicina de Família e Comunidade.
+              Sou médica e bacharel em Enfermagem, com 20 anos na saúde e 10 anos de medicina. Tenho experiência em clínica médica, Saúde da Família, urgência e emergência, hospitais e telemedicina.
             </p>
             <p>
-              Hoje coordena o programa Mente, Corpo e Hormônios em Guarulhos e por telemedicina. O princípio é o mesmo de
-              sempre: ouvir primeiro.
+              Mestre em Administração e Gestão da Saúde Pública, com pós-graduação em Saúde e Qualidade de Vida, Saúde da
+              Família e Comunidade, Saúde e Medicina de Emergência. Sigo ampliando minha formação em Endocrinologia e
+              Saúde Integrativa.
+            </p>
+            <p>
+              Na consulta, você encontra escuta atenta, avaliação individualizada e um plano de cuidado que considera sua
+              história, suas necessidades e sua rotina.
             </p>
           </Reveal>
-          <Reveal delay={180} className="mt-8 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6">
-            {[
-              ["20", "anos na saúde"],
-              ["10", "anos como médica"],
-              ["3", "estados (AM, MT e SP)"],
-            ].map(([n, l]) => (
-              <div key={l}>
-                <p className="font-serif text-4xl text-gold">{n}</p>
-                <p className="mt-1 text-[0.8rem] leading-snug text-ink-soft">{l}</p>
-              </div>
-            ))}
-          </Reveal>
         </div>
+      </div>
+
+      {/* mapa ilustrativo da trajetória: só informa, sem botões */}
+      <div className="mx-auto max-w-6xl px-5 pb-14 lg:pb-24">
+        <Reveal className="mx-auto flex max-w-[460px] flex-col items-center">
+          <div className="relative w-full">
+            <Image
+              src="/img/mapa-brasil.webp"
+              alt="Mapa do Brasil com o Amazonas, o Mato Grosso e São Paulo em destaque, estados onde a Dra. Daniela atuou"
+              width={1100}
+              height={1089}
+              sizes="(min-width:1024px) 460px, 92vw"
+              className="h-auto w-full drop-shadow-[0_24px_30px_rgba(67,55,46,0.18)]"
+            />
+            {ESTADOS.map(([uf]) => {
+              const l = MAP_LAYERS[uf];
+              return (
+                <div
+                  key={uf}
+                  aria-hidden
+                  className="pointer-events-none absolute"
+                  style={{ left: `${l.left}%`, top: `${l.top}%`, width: `${l.width}%`, height: `${l.height}%` }}
+                >
+                  <Image src={`/img/estado-${uf.toLowerCase()}.webp`} alt="" width={l.w} height={l.h} sizes="240px" className="h-full w-full" />
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-4 text-center text-[0.9rem] text-ink-soft">
+            Trajetória em {ESTADOS.map(([, n]) => n).join(", ").replace(/, ([^,]*)$/, " e $1")}.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

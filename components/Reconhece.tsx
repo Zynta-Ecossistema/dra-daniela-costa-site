@@ -1,42 +1,69 @@
-import { Reveal } from "./Reveal";
-import { WaButton } from "./WaButton";
-import { MSG } from "@/lib/site";
+"use client";
 
-const cards = [
-  "Acorda cansada(o), mesmo depois de dormir.",
-  "Já fez dieta, perdeu peso, e ele voltou.",
-  "Depois dos 40, sono, humor e corpo mudaram.",
-  "Ansiedade e estresse já estão pesando no corpo.",
-  "Os exames dão “normal”, mas você não se sente bem.",
-  "Cansou de consultas de 10 minutos sem resposta.",
+import { useId, useState } from "react";
+import { Reveal } from "./Reveal";
+import { waLink, msgSintomas } from "@/lib/site";
+
+const itens = [
+  "Acorda cansada(o), mesmo depois de dormir",
+  "Já fez dieta, perdeu peso e ele voltou",
+  "Depois dos 40, sono, humor e corpo mudaram",
+  "Ansiedade e estresse já estão pesando no corpo",
+  "Os exames dão “normal”, mas você não se sente bem",
+  "Cansou de consultas de 10 minutos sem resposta",
 ];
 
+// As respostas ficam só neste estado do navegador. Vão para o WhatsApp apenas quando a visitante clica em agendar.
 export function Reconhece() {
+  const [marcados, setMarcados] = useState<boolean[]>(() => itens.map(() => false));
+  const [aberto, setAberto] = useState(false);
+  const listaId = useId();
+
+  const href = waLink(msgSintomas(itens.filter((_, i) => marcados[i])));
+
   return (
     <section id="reconhece" className="border-y border-line bg-paper-2">
-      <div className="mx-auto max-w-6xl px-5 py-14 lg:py-24">
-        <Reveal className="max-w-2xl">
-          <h2 className="h-display text-[clamp(2rem,4.4vw,3.2rem)]">
+      <div className="mx-auto max-w-3xl px-5 py-12 lg:py-20">
+        <Reveal>
+          <h2 className="h-display text-[clamp(1.9rem,4.2vw,3rem)]">
             Você se reconhece em <em>alguma destas situações?</em>
           </h2>
-          <p className="mt-4 text-ink-soft">São as queixas que mais trazem pacientes até aqui.</p>
+          <p className="mt-3 text-ink-soft">Marque o que você sente. Se quiser, levamos isso para a conversa.</p>
+          <button
+            type="button"
+            className="btn btn-ghost mt-5 sm:hidden"
+            aria-expanded={aberto}
+            aria-controls={listaId}
+            onClick={() => setAberto((v) => !v)}
+          >
+            {aberto ? "Ocultar situações" : "Ver situações"}
+          </button>
         </Reveal>
 
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((t, i) => (
-            <Reveal as="li" key={t} delay={(i % 3) * 80} className="rounded-2xl border border-line bg-card p-6">
-              <span className="font-serif text-[1.1rem] text-gold">{String(i + 1).padStart(2, "0")}</span>
-              <p className="mt-3 font-serif text-[1.3rem] leading-snug">{t}</p>
-            </Reveal>
-          ))}
-        </ul>
+        <fieldset id={listaId} className={`mt-6 ${aberto ? "block" : "hidden"} sm:block`}>
+          <legend className="sr-only">Situações que você reconhece</legend>
+          <ul className="divide-y divide-line rounded-2xl border border-line bg-card">
+            {itens.map((t, i) => (
+              <li key={t}>
+                <label className="flex min-h-[56px] cursor-pointer items-center gap-4 px-4 py-3 sm:px-5">
+                  <input
+                    type="checkbox"
+                    checked={marcados[i]}
+                    onChange={() => setMarcados((m) => m.map((v, k) => (k === i ? !v : v)))}
+                    className="h-5 w-5 shrink-0 accent-[#8c5e1a]"
+                  />
+                  <span className="leading-snug">{t}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
 
-        <Reveal className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-serif text-[clamp(1.3rem,2.4vw,1.8rem)] leading-snug max-w-xl">
-            Se marcou duas ou mais, a primeira consulta foi pensada para você.
-          </p>
-          <WaButton msg={MSG.M2}>Quero agendar</WaButton>
-        </Reveal>
+        <div className="mt-6">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full sm:w-auto">
+            Agendar
+          </a>
+        </div>
       </div>
     </section>
   );

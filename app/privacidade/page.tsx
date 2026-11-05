@@ -24,7 +24,7 @@ const itens = [
   ],
   [
     "Registros técnicos e cookies",
-    "A hospedagem do site pode registrar dados técnicos de acesso (como endereço IP e tipo de navegador) por segurança e funcionamento. Hoje o site não usa cookies de rastreamento nem de publicidade. Se ferramentas de medição forem adotadas no futuro, elas só serão ativadas depois do seu consentimento e esta política será atualizada.",
+    "A hospedagem do site pode registrar dados técnicos de acesso (como endereço IP e tipo de navegador) por segurança e funcionamento. Hoje o site não usa cookies de rastreamento nem de publicidade. O mapa do consultório é carregado do Google Maps e, ao ser exibido, o Google pode registrar dados técnicos de acesso segundo a política dele. Se ferramentas de medição forem adotadas no futuro, elas só serão ativadas depois do seu consentimento e esta política será atualizada.",
   ],
   [
     "Seus direitos",

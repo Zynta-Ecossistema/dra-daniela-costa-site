@@ -17,9 +17,9 @@ const sans = Instrument_Sans({
   display: "swap",
 });
 
-const title = "Dra. Daniela Costa · Médica em Guarulhos e Telemedicina";
+const title = "Dra. Daniela Costa · Médica em Alphaville e Telemedicina";
 const description =
-  "Primeira consulta sem pressa, retorno incluso e acompanhamento semanal com equipe. Presencial em Guarulhos ou por vídeo. Agende pelo WhatsApp.";
+  "Avaliação e acompanhamento da saúde da mulher 40+, com atenção à mente, ao corpo e às mudanças hormonais. Presencial em Alphaville ou por vídeo. Agende pelo WhatsApp.";
 
 const SITE = "https://www.dradanielacosta.com.br";
 
@@ -49,30 +49,14 @@ const physician = {
   telephone: "+55 11 96172-7349",
   email: "dradanielacostamfc@gmail.com",
   knowsLanguage: "pt-BR",
-  address: [
-    {
-      "@type": "PostalAddress",
-      streetAddress: "R. Silvestre Vasconcelos Calmon, 190",
-      addressLocality: "Guarulhos",
-      addressRegion: "SP",
-      addressCountry: "BR",
-    },
-    {
-      "@type": "PostalAddress",
-      streetAddress: "R. Dr. Ramos de Azevedo, 159",
-      addressLocality: "Guarulhos",
-      addressRegion: "SP",
-      addressCountry: "BR",
-    },
-    {
-      "@type": "PostalAddress",
-      streetAddress: "Alameda Grajaú, 98, 18º andar, Alphaville Industrial",
-      addressLocality: "Barueri",
-      addressRegion: "SP",
-      postalCode: "06454-050",
-      addressCountry: "BR",
-    },
-  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Alameda Grajaú, 98, 18º andar, Alphaville Industrial",
+    addressLocality: "Barueri",
+    addressRegion: "SP",
+    postalCode: "06454-050",
+    addressCountry: "BR",
+  },
   sameAs: ["https://www.instagram.com/dra_danielacosta", DOCTORALIA_URL, ...(GOOGLE_URL ? [GOOGLE_URL] : [])],
 };
 

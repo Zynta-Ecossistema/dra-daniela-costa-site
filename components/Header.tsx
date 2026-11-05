@@ -6,7 +6,6 @@ import { waLink, MSG } from "@/lib/site";
 
 const links = [
   ["#como", "Como funciona"],
-  ["#consulta", "Consulta"],
   ["#avaliacoes", "Avaliações"],
   ["#sobre", "Sobre"],
   ["#onde", "Onde atendo"],
