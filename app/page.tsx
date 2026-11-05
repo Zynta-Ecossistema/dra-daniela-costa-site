@@ -5,6 +5,7 @@ import { Como } from "@/components/Como";
 import { Reviews } from "@/components/Reviews";
 import { Sobre } from "@/components/Sobre";
 import { Trajetoria } from "@/components/Trajetoria";
+import { Equipe } from "@/components/Equipe";
 import { Onde } from "@/components/Onde";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
@@ -22,6 +23,7 @@ export default function Page() {
         <Reviews />
         <Sobre />
         <Trajetoria />
+        <Equipe />
         <Onde />
         <Faq />
         <Contact />

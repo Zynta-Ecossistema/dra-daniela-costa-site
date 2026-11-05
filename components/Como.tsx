@@ -1,5 +1,4 @@
 import { Reveal } from "./Reveal";
-import { TEAM } from "@/lib/site";
 
 const steps = [
   ["01", "Primeira consulta", "Escuta da sua história, sintomas, rotina e objetivos, com os exames que fizerem sentido.", "Consulta"],
@@ -29,18 +28,6 @@ export function Como() {
           </Reveal>
         ))}
       </ol>
-
-      <Reveal className="on-dark mt-12 rounded-[28px] bg-cocoa px-7 py-8 text-paper sm:px-10">
-        <p className="eyebrow text-gold-light">Equipe do programa</p>
-        <ul className="mt-5 grid gap-6 sm:grid-cols-3">
-          {TEAM.map(([n, r]) => (
-            <li key={n}>
-              <p className="font-serif text-[1.45rem] leading-tight">{n}</p>
-              <p className="mt-1 text-[0.88rem] text-paper/75">{r}</p>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
     </section>
   );
 }
